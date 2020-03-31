@@ -11,7 +11,8 @@ namespace Server
         private Stream stream;
         private Formatter formatter;
         private string fileName;
-        public FileManager(string fileName) {
+        public FileManager(string fileName)
+        {
             this.fileName = fileName;
 
         }
@@ -29,18 +30,20 @@ namespace Server
 
         }
 
-        public void closeStream() {
+        public void closeStream()
+        {
             try
             {
                 stream.Close();
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 Console.WriteLine(e);
             }
-           
+
         }
 
 
-    
+
     }
 }

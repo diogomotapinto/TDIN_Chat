@@ -10,12 +10,14 @@ namespace Server
         private string name;
 
         private string password;
-        public User(string name, string password) {
+        public User(string name, string password)
+        {
             this.name = name;
             this.password = password;
         }
 
-        public string Name {
+        public string Name
+        {
             get
             {
                 return name;
@@ -26,7 +28,8 @@ namespace Server
             }
         }
 
-        public string Password {
+        public string Password
+        {
             get
             {
                 return password;

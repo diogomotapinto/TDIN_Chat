@@ -25,12 +25,13 @@ namespace WPFUI
             InitializeComponent();
         }
 
-        void send_message(Object sender, RoutedEventArgs e) {
+        void send_message(Object sender, RoutedEventArgs e)
+        {
             String str = textBox.Text;
             textBlock.Inlines.Add(str + Environment.NewLine);
             textBox.Text = "";
         }
 
-      
+
     }
 }
