@@ -13,27 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFUI
+namespace Client
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    /// 
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
-            
             InitializeComponent();
         }
-
-        void send_message(Object sender, RoutedEventArgs e)
-        {
-            String str = textBox.Text;
-            textBlock.Inlines.Add(str + Environment.NewLine);
-            textBox.Text = "";
-        }
-
-
     }
 }

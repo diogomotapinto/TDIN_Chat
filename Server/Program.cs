@@ -1,26 +1,45 @@
 ﻿using System;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters;
-using System.Collections;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
 
 namespace Server
 {
     class Program
     {
-
-        public static Stream stream;
-        public static Formatter formatter;
+        private const int portNum = 13;
 
         static void Main(string[] args)
         {
-            ArrayList users = new ArrayList();
+            bool done = false;
+            var listener = new TcpListener(IPAddress.Any, portNum);
 
-            User user = new User("Diogo", "okok");
-            users.Add(user);
+            listener.Start();
 
-            Console.WriteLine("Enter to exit.");
-            string v = Console.ReadLine();
+            while (!done)
+            {
+                Console.WriteLine("Waiting for connection...");
+                TcpClient client = listener.AcceptTcpClient();
+
+                Console.WriteLine("Connection Accepted.");
+
+                NetworkStream ns = client.GetStream();
+                byte[] byteTime = Encoding.ASCII.GetBytes(DateTime.Now.ToString());
+
+                try
+                {
+                    ns.Write(byteTime, 0, byteTime.Length);
+                    ns.Close();
+                    client.Close();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
+
+            }
+            listener.Stop();
+
         }
 
 

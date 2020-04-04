@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace Server
 {
     [Serializable()]
+
     class User
     {
         private string name;
-
         private string password;
         public User(string name, string password)
         {
