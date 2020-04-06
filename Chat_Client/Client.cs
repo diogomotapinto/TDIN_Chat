@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
+using Server;
 
 namespace Chat_Client
 {
@@ -26,7 +27,7 @@ namespace Chat_Client
                 while (count++ < 1)
                 {
 
-                    Byte[] data = System.Text.Encoding.ASCII.GetBytes(message);
+                    Byte[] data = Utils.ObjectToByteArray(message);
 
                     stream.Write(data, 0, data.Length);
 

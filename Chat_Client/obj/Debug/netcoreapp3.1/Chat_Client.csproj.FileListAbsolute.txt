@@ -11,3 +11,7 @@ C:\Users\Diogo\source\repos\Chat_Project\Chat_Client\obj\Debug\netcoreapp3.1\Cha
 C:\Users\Diogo\source\repos\Chat_Project\Chat_Client\obj\Debug\netcoreapp3.1\Chat_Client.dll
 C:\Users\Diogo\source\repos\Chat_Project\Chat_Client\obj\Debug\netcoreapp3.1\Chat_Client.pdb
 C:\Users\Diogo\source\repos\Chat_Project\Chat_Client\obj\Debug\netcoreapp3.1\Chat_Client.genruntimeconfig.cache
+C:\Users\Diogo\source\repos\Chat_Project\Chat_Client\bin\Debug\netcoreapp3.1\Server.exe
+C:\Users\Diogo\source\repos\Chat_Project\Chat_Client\bin\Debug\netcoreapp3.1\Server.dll
+C:\Users\Diogo\source\repos\Chat_Project\Chat_Client\bin\Debug\netcoreapp3.1\Server.pdb
+C:\Users\Diogo\source\repos\Chat_Project\Chat_Client\obj\Debug\netcoreapp3.1\Chat_Client.csproj.CopyComplete

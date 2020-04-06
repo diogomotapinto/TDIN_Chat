@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v3.1": {
       "Chat_Client/1.0.0": {
+        "dependencies": {
+          "Server": "1.0.0"
+        },
         "runtime": {
           "Chat_Client.dll": {}
+        }
+      },
+      "Server/1.0.0": {
+        "runtime": {
+          "Server.dll": {}
         }
       }
     }
   },
   "libraries": {
     "Chat_Client/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Server/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

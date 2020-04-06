@@ -3,8 +3,8 @@
 
 namespace Server
 {
-
-    public class Messages : MarshalByRefObject
+    [Serializable()]
+    public class Messages
     {
         private string header;
         private object payload;
