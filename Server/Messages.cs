@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace Server
 {
 
-    class Message
+    public class Messages : MarshalByRefObject
     {
         private string header;
         private object payload;
-        public Message(string header, object payload)
+        public Messages(string header, object payload)
         {
             this.header = header;
             this.payload = payload;
@@ -24,6 +23,7 @@ namespace Server
         {
             return this.payload;
         }
+
 
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Server
 {
-    class Actions
+    public class Actions
     {
         public const string REGISTER = "REGISTER";
     }

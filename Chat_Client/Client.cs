@@ -17,7 +17,7 @@ namespace Chat_Client
 
         }
 
-        public void connect(string message)
+        public void connect(Object message)
         {
             try
             {
