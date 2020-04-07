@@ -50,7 +50,7 @@ namespace Server
                 while ((i = stream.Read(bytes, 0, bytes.Length)) != 0)
                 {
                     Messages hex = (Messages)Utils.ByteArrayToObject(bytes);
-                    Console.WriteLine("{1}: Received: {0}", (string)hex.getPayload(), Thread.CurrentThread.ManagedThreadId);
+                    Reducer(hex.getHeader(), hex.getPayload());
                     string str = "Hey Device!";
                     Byte[] reply = System.Text.Encoding.ASCII.GetBytes(str);
                     stream.Write(reply, 0, reply.Length);
@@ -62,6 +62,21 @@ namespace Server
                 Console.WriteLine("Exception: {0}", e.ToString());
                 client.Close();
             }
+        }
+
+
+        private void Reducer(string type, object payload)
+        {
+            switch (type)
+            {
+                case Actions.REGISTER:
+                    Console.WriteLine("{1}: Received: {0}", type, Thread.CurrentThread.ManagedThreadId);
+                    break;
+                default:
+                    Console.WriteLine(payload);
+                    break;
+            }
+
         }
     }
 }

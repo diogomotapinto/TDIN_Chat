@@ -12,8 +12,9 @@ namespace Chat_Client
             Client client = new Client("127.0.0.1", Int32.Parse(port));
             Console.WriteLine("Message: ");
 
-            string message = Console.ReadLine();
-            Messages messages = new Messages(Actions.REGISTER, message);
+
+            Register register = new Register();
+            Messages messages = new Messages(Actions.REGISTER, register.getUser());
             client.connect(messages);
         }
     }
