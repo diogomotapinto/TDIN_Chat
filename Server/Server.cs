@@ -71,14 +71,19 @@ namespace Server
             {
                 case Actions.REGISTER:
                     Console.WriteLine("{1}: Received: {0}", type, Thread.CurrentThread.ManagedThreadId);
-                    User user = (User)payload;
-                    FileManager.writeStream(user);
+                    registerUser((User)payload);
                     break;
                 default:
                     Console.WriteLine(payload);
                     break;
             }
 
+        }
+
+
+        private void registerUser(User user)
+        {
+            FileManager.writeStream(user);
         }
     }
 }
