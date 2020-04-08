@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 
 namespace Server
 {
-    using System;
-    using System.Net;
-    using System.Net.Sockets;
-    using System.Text;
-    using System.Threading;
+
     class Server
     {
         TcpListener server = null;
@@ -20,6 +18,7 @@ namespace Server
             StartListener();
         }
         public void StartListener()
+
         {
             try
             {
@@ -71,6 +70,8 @@ namespace Server
             {
                 case Actions.REGISTER:
                     Console.WriteLine("{1}: Received: {0}", type, Thread.CurrentThread.ManagedThreadId);
+                    User user = (User)payload;
+                    FileManager.writeStream(user);
                     break;
                 default:
                     Console.WriteLine(payload);
