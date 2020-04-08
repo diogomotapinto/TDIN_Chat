@@ -84,18 +84,21 @@ namespace Server
 
         private void registerUser(User user)
         {
-            var list = new List<User>();
-            list.Add(user);
-
-
-            FileManager.writeStream(list);
             var finalist = new List<User>();
             finalist = FileManager.ReadBinaryFile<User>();
 
             foreach (var elem in finalist)
             {
-                Console.WriteLine(elem);
+                if (elem.ToString() == user.ToString())
+                {
+                    Console.WriteLine("User {0} already has an account", user.ToString());
+                    return;
+                }
             }
+
+            finalist.Add(user);
+            FileManager.writeStream(finalist);
+            Console.WriteLine("Hello {0}", user.ToString());
         }
     }
 }

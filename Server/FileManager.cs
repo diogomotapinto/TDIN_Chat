@@ -42,7 +42,7 @@ namespace Server
         {
             using (Stream stream = File.Open(path, append ? FileMode.Append : FileMode.Create))
             {
-                var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                var binaryFormatter = new BinaryFormatter();
                 binaryFormatter.Serialize(stream, objectToWrite);
             }
         }
@@ -59,12 +59,19 @@ namespace Server
         public static List<T> ReadBinaryFile<T>()
         {
             List<T> list;
-            using (Stream fileStream = File.OpenRead(path))
+            if (File.Exists(path))
             {
-                BinaryFormatter deserializer = new BinaryFormatter();
-                list = (List<T>)deserializer.Deserialize(fileStream);
+
+                using (Stream fileStream = File.OpenRead(path))
+                {
+                    BinaryFormatter deserializer = new BinaryFormatter();
+                    list = (List<T>)deserializer.Deserialize(fileStream);
+                }
+
+                return list;
             }
-            return list;
+
+            return new List<T>();
         }
 
         public void closeStream()
