@@ -86,7 +86,16 @@ namespace Server
         {
             var list = new List<User>();
             list.Add(user);
+
+
             FileManager.writeStream(list);
+            var finalist = new List<User>();
+            finalist = FileManager.ReadBinaryFile<User>();
+
+            foreach (var elem in finalist)
+            {
+                Console.WriteLine(elem);
+            }
         }
     }
 }

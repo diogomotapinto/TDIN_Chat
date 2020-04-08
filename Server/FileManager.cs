@@ -56,7 +56,7 @@ namespace Server
             }
         }
 
-        public static Object ReadBinaryFile<T>()
+        public static List<T> ReadBinaryFile<T>()
         {
             List<T> list;
             using (Stream fileStream = File.OpenRead(path))
