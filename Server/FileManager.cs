@@ -15,14 +15,18 @@ namespace Server
 
         }
 
-        public static void writeStream(User user)
+        public static void writeStream(Object obj)
         {
             try
             {
                 if (!File.Exists(path))
                 {
                     // Create a file to write to.
-                    WriteToBinaryFile(user);
+                    WriteToBinaryFile(obj);
+                }
+                else
+                {
+                    WriteToBinaryFile(obj, true);
                 }
             }
             catch (Exception e)
