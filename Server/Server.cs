@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Server
 {
@@ -83,7 +84,9 @@ namespace Server
 
         private void registerUser(User user)
         {
-            FileManager.writeStream(user);
+            var list = new List<User>();
+            list.Add(user);
+            FileManager.writeStream(list);
         }
     }
 }

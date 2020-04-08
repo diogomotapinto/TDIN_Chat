@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
-
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Server
 {
@@ -26,7 +27,7 @@ namespace Server
                 }
                 else
                 {
-                    WriteToBinaryFile(obj, true);
+                    WriteToBinaryFile(obj, false);
                 }
             }
             catch (Exception e)
@@ -50,12 +51,21 @@ namespace Server
         {
             using (Stream stream = File.Open(path, FileMode.Open))
             {
-                var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                var binaryFormatter = new BinaryFormatter();
                 return (T)binaryFormatter.Deserialize(stream);
             }
         }
 
-
+        public static Object ReadBinaryFile<T>()
+        {
+            List<T> list;
+            using (Stream fileStream = File.OpenRead(path))
+            {
+                BinaryFormatter deserializer = new BinaryFormatter();
+                list = (List<T>)deserializer.Deserialize(fileStream);
+            }
+            return list;
+        }
 
         public void closeStream()
         {
