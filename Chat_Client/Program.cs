@@ -10,8 +10,32 @@ namespace Chat_Client
             Console.WriteLine("What port?   ");
             String port = Console.ReadLine();
             Client client = new Client("127.0.0.1", Int32.Parse(port));
-            Register register = new Register();
-            Messages messages = new Messages(Actions.REGISTER, register.getUser());
+            Messages messages;
+            Console.WriteLine("--------------------------------------");
+            Console.WriteLine("--------------------------------------");
+            Console.WriteLine("--------------------------------------");
+            Console.WriteLine("-------------Welcome------------------");
+            Console.WriteLine("--------------------------------------");
+            Console.WriteLine("-------------1-Login------------------");
+            Console.WriteLine("-------------2-Register---------------");
+            Console.WriteLine("--------------------------------------");
+            Console.WriteLine("--------------------------------------");
+            Console.WriteLine("--------------------------------------");
+            string action = Console.ReadLine();
+            switch (Int32.Parse(action))
+            {
+                case 1:
+                    Login login = new Login();
+                    messages = new Messages(Actions.LOGIN, login.getUser());
+                    break;
+                case 2:
+                    Register register = new Register();
+                    messages = new Messages(Actions.REGISTER, register.getUser());
+                    break;
+                default:
+                    return;
+            }
+
             client.connect(messages);
         }
     }

@@ -7,5 +7,6 @@ namespace Server
     public class Actions
     {
         public const string REGISTER = "REGISTER";
+        public const string LOGIN = "LOGIN";
     }
 }

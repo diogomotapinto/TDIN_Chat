@@ -74,6 +74,10 @@ namespace Server
                     Console.WriteLine("{1}: Received: {0}", type, Thread.CurrentThread.ManagedThreadId);
                     registerUser((User)payload);
                     break;
+                case Actions.LOGIN:
+                    Console.WriteLine("{1}: Received: {0}", type, Thread.CurrentThread.ManagedThreadId);
+                    loginUser((User)payload);
+                    break;
                 default:
                     Console.WriteLine(payload);
                     break;
@@ -92,6 +96,7 @@ namespace Server
                 if (elem.ToString() == user.ToString())
                 {
                     Console.WriteLine("User {0} already has an account", user.ToString());
+
                     return;
                 }
             }
@@ -100,5 +105,25 @@ namespace Server
             FileManager.writeStream(finalist);
             Console.WriteLine("Hello {0}", user.ToString());
         }
+
+
+        private void loginUser(User user)
+        {
+            var finalist = new List<User>();
+            finalist = FileManager.ReadBinaryFile<User>();
+
+            foreach (var elem in finalist)
+            {
+                if (elem.ToString() == user.ToString() && user.Password == elem.Password)
+                {
+                    Console.WriteLine("Logged  in {0}", user.ToString());
+                    return;
+                }
+            }
+
+            Console.WriteLine("Something is wrong {0}", user.ToString());
+        }
     }
+
+
 }
