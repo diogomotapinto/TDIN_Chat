@@ -5,9 +5,4 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\MyUser\MyUser.csproj" />
-    <ProjectReference Include="..\Server\Server.csproj" />
-  </ItemGroup>
-
 </Project>

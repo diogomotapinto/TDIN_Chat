@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Server
 {
+    [Serializable()]
     public class Actions
     {
         public const string REGISTER = "REGISTER";
