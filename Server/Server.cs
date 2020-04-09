@@ -128,6 +128,11 @@ namespace Server
         }
 
 
+        public List<User> getLoggedIn()
+        {
+            return FileManager.ReadBinaryFile<User>();
+        }
+
 
     }
 
