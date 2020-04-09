@@ -9,6 +9,7 @@ namespace Chat_Client
         {
             Console.WriteLine("What port?   ");
             String port = Console.ReadLine();
+            Actions actions = new Actions();
             Client client = new Client("127.0.0.1", Int32.Parse(port));
             Messages messages;
             Console.WriteLine("--------------------------------------");
@@ -27,6 +28,8 @@ namespace Chat_Client
                 case 1:
                     Login login = new Login();
                     messages = new Messages(Actions.LOGIN, login.getUser());
+                    User user = login.getUser();
+                    actions.LoggedIn += user.OnLoginUser;
                     break;
                 case 2:
                     Register register = new Register();

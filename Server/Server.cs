@@ -12,10 +12,13 @@ namespace Server
     class Server
     {
         TcpListener server = null;
+        Actions actions;
+
         public Server(string ip, int port)
         {
             IPAddress localAddr = IPAddress.Parse(ip);
             server = new TcpListener(localAddr, port);
+            actions = new Actions();
             server.Start();
             StartListener();
         }
@@ -96,7 +99,6 @@ namespace Server
                 if (elem.ToString() == user.ToString())
                 {
                     Console.WriteLine("User {0} already has an account", user.ToString());
-
                     return;
                 }
             }
@@ -117,12 +119,17 @@ namespace Server
                 if (elem.ToString() == user.ToString() && user.Password == elem.Password)
                 {
                     Console.WriteLine("Logged  in {0}", user.ToString());
+                    //this will return a list of all users with an account
+                    actions.loginUser<User>(finalist);
                     return;
                 }
             }
 
             Console.WriteLine("Something is wrong {0}", user.ToString());
         }
+
+
+
     }
 
 

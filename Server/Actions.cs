@@ -8,5 +8,28 @@ namespace Server
     {
         public const string REGISTER = "REGISTER";
         public const string LOGIN = "LOGIN";
+
+        public Actions()
+        {
+
+        }
+
+        public void loginUser<T>(List<T> list)
+        {
+            OnLoginUser();
+        }
+
+        public delegate void LoginEventHandler(object source, EventArgs args);
+
+        public event LoginEventHandler LoggedIn;
+
+        protected virtual void OnLoginUser()
+        {
+            if (LoggedIn != null)
+            {
+                LoggedIn(this, EventArgs.Empty);
+            }
+        }
+
     }
 }

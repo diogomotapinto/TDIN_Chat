@@ -46,5 +46,10 @@ namespace Server
             return name;
         }
 
+        public void OnLoginUser(object source, EventArgs e)
+        {
+            Console.WriteLine("User logged in");
+        }
+
     }
 }
