@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Server
 {
-    class Class1
+    class Logged
     {
     }
 }

@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v3.1": {
       "Server/1.0.0": {
+        "dependencies": {
+          "MyUser": "1.0.0"
+        },
         "runtime": {
           "Server.dll": {}
+        }
+      },
+      "MyUser/1.0.0": {
+        "runtime": {
+          "MyUser.dll": {}
         }
       }
     }
   },
   "libraries": {
     "Server/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MyUser/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

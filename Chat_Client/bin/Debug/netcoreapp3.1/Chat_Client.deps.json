@@ -8,13 +8,22 @@
     ".NETCoreApp,Version=v3.1": {
       "Chat_Client/1.0.0": {
         "dependencies": {
+          "MyUser": "1.0.0",
           "Server": "1.0.0"
         },
         "runtime": {
           "Chat_Client.dll": {}
         }
       },
+      "MyUser/1.0.0": {
+        "runtime": {
+          "MyUser.dll": {}
+        }
+      },
       "Server/1.0.0": {
+        "dependencies": {
+          "MyUser": "1.0.0"
+        },
         "runtime": {
           "Server.dll": {}
         }
@@ -23,6 +32,11 @@
   },
   "libraries": {
     "Chat_Client/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MyUser/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
