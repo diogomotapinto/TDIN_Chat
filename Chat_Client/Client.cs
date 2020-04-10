@@ -2,7 +2,7 @@
 using System.Net;
 using System.Net.Sockets;
 using Server;
-using MyUser;
+
 namespace Chat_Client
 {
     class Client

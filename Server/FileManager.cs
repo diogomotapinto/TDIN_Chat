@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using MyUser;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Server

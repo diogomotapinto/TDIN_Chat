@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
-      "MyUser/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "compile": {
-          "bin/placeholder/MyUser.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/MyUser.dll": {}
-        }
-      }
-    }
+    ".NETCoreApp,Version=v3.1": {}
   },
-  "libraries": {
-    "MyUser/1.0.0": {
-      "type": "project",
-      "path": "../MyUser/MyUser.csproj",
-      "msbuildProject": "../MyUser/MyUser.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": [
-      "MyUser >= 1.0.0"
-    ]
+    ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
     "C:\\Users\\Diogo\\.nuget\\packages\\": {}
@@ -51,11 +32,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {
-            "C:\\Users\\Diogo\\source\\repos\\Chat_Project\\MyUser\\MyUser.csproj": {
-              "projectPath": "C:\\Users\\Diogo\\source\\repos\\Chat_Project\\MyUser\\MyUser.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

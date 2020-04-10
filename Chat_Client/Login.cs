@@ -1,7 +1,7 @@
 ﻿using Server;
 using System.IO;
 using System;
-using MyUser;
+
 namespace Chat_Client
 {
     public class Login

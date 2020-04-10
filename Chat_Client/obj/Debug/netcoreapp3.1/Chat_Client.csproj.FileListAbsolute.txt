@@ -15,6 +15,3 @@ C:\Users\Diogo\source\repos\Chat_Project\Chat_Client\bin\Debug\netcoreapp3.1\Ser
 C:\Users\Diogo\source\repos\Chat_Project\Chat_Client\bin\Debug\netcoreapp3.1\Server.dll
 C:\Users\Diogo\source\repos\Chat_Project\Chat_Client\bin\Debug\netcoreapp3.1\Server.pdb
 C:\Users\Diogo\source\repos\Chat_Project\Chat_Client\obj\Debug\netcoreapp3.1\Chat_Client.csproj.CopyComplete
-C:\Users\Diogo\source\repos\Chat_Project\Chat_Client\bin\Debug\netcoreapp3.1\MyUser.exe
-C:\Users\Diogo\source\repos\Chat_Project\Chat_Client\bin\Debug\netcoreapp3.1\MyUser.dll
-C:\Users\Diogo\source\repos\Chat_Project\Chat_Client\bin\Debug\netcoreapp3.1\MyUser.pdb

@@ -2,22 +2,9 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "MyUser/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "compile": {
-          "bin/placeholder/MyUser.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/MyUser.dll": {}
-        }
-      },
       "Server/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "MyUser": "1.0.0"
-        },
         "compile": {
           "bin/placeholder/Server.dll": {}
         },
@@ -28,11 +15,6 @@
     }
   },
   "libraries": {
-    "MyUser/1.0.0": {
-      "type": "project",
-      "path": "../MyUser/MyUser.csproj",
-      "msbuildProject": "../MyUser/MyUser.csproj"
-    },
     "Server/1.0.0": {
       "type": "project",
       "path": "../Server/Server.csproj",
@@ -41,7 +23,6 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "MyUser >= 1.0.0",
       "Server >= 1.0.0"
     ]
   },
@@ -71,9 +52,6 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Diogo\\source\\repos\\Chat_Project\\MyUser\\MyUser.csproj": {
-              "projectPath": "C:\\Users\\Diogo\\source\\repos\\Chat_Project\\MyUser\\MyUser.csproj"
-            },
             "C:\\Users\\Diogo\\source\\repos\\Chat_Project\\Server\\Server.csproj": {
               "projectPath": "C:\\Users\\Diogo\\source\\repos\\Chat_Project\\Server\\Server.csproj"
             }

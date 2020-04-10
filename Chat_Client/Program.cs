@@ -1,6 +1,6 @@
 ﻿using System;
 using Server;
-using MyUser;
+
 
 namespace Chat_Client
 {
