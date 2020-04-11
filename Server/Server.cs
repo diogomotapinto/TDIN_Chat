@@ -135,7 +135,17 @@ namespace Server
 
         private void LogoutUser(User user)
         {
-            onlineUsers.Remove(user);
+            int i = 0;
+            int index = 0;
+            foreach (var elem in onlineUsers)
+            {
+                if (elem.Name == user.Name)
+                {
+                    index = i;
+                }
+                i++;
+            }
+            onlineUsers.RemoveAt(index);
             Console.WriteLine("Logged out  {0}", user.ToString());
         }
 
