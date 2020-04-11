@@ -10,6 +10,7 @@ namespace Server
         public const string REGISTER = "REGISTER";
         public const string LOGIN = "LOGIN";
         public const string LOGOUT = "LOGOUT";
+        public const string DIRECT_MESSAGE = "DIRECT_MESSAGE";
         public Actions()
         {
 

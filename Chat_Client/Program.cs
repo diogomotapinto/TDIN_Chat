@@ -10,15 +10,36 @@ namespace Chat_Client
         {
             var visTh = new Thread(visualInterface);
             visTh.Start();
-            var mesTh = new Thread(messageEx);
-            mesTh.Start();
-
+            var receiverTh = new Thread(messageReceiver);
+            visTh.Join();
+            receiverTh.Start();
+            var senderTh = new Thread(messageSender);
+            senderTh.Start();
         }
 
-        public static void messageEx()
+
+        public static void messageSender()
         {
+            Console.WriteLine("Port of the other peer:   ");
+            String port = Console.ReadLine();
+            bool done = false;
+            Client client = new Client("127.0.0.1", Int32.Parse(port));
+            Messages messages;
+            while (!done)
+            {
+                Console.WriteLine("Write Message:   ");
+                string message = Console.ReadLine();
+                messages = new Messages(Actions.DIRECT_MESSAGE, message);
+                client.connect(messages);
+            }
+        }
+
+        public static void messageReceiver()
+        {
+            Console.WriteLine("Select Client Port:  ");
+            string clientPort = Console.ReadLine();
             Console.WriteLine("Starting Message Receiver...");
-            ClientServer server = new ClientServer("127.0.0.1", 101);
+            ClientServer server = new ClientServer("127.0.0.1", Int32.Parse(clientPort));
         }
 
         public static void visualInterface()

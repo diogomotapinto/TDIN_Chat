@@ -11,5 +11,20 @@ namespace Chat_Client
         {
 
         }
+
+        public override void Reducer(string type, object payload)
+        {
+            switch (type)
+            {
+                case Actions.DIRECT_MESSAGE:
+                    string message = (string)payload;
+                    Console.WriteLine(message);
+                    break;
+                default:
+                    Console.WriteLine("Message type invalid!");
+                    break;
+            }
+
+        }
     }
 }

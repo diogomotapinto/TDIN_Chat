@@ -69,7 +69,7 @@ namespace Server
         }
 
 
-        private void Reducer(string type, object payload)
+        public virtual void Reducer(string type, object payload)
         {
             switch (type)
             {
