@@ -9,6 +9,7 @@ namespace Chat_Client
     {
         public ClientServer(string ip, int port) : base(ip, port)
         {
+
         }
     }
 }

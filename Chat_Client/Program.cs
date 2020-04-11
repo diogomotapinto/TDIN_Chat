@@ -1,12 +1,27 @@
 ﻿using System;
 using Server;
-
+using System.Threading;
 
 namespace Chat_Client
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            var visTh = new Thread(visualInterface);
+            visTh.Start();
+            var mesTh = new Thread(messageEx);
+            mesTh.Start();
+
+        }
+
+        public static void messageEx()
+        {
+            Console.WriteLine("Starting Message Receiver...");
+            ClientServer server = new ClientServer("127.0.0.1", 101);
+        }
+
+        public static void visualInterface()
         {
             Console.WriteLine("What port?   ");
             String port = Console.ReadLine();
