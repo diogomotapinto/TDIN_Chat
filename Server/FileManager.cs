@@ -10,6 +10,7 @@ namespace Server
 
         private Stream stream;
         private const string path = @"c:\temp\DB.bin";
+        private const string directPath = @"c:\temp";
         public FileManager()
         {
 
@@ -19,6 +20,10 @@ namespace Server
         {
             try
             {
+                if (!Directory.Exists(directPath))
+                {
+                    Directory.CreateDirectory(directPath);
+                }
                 if (!File.Exists(path))
                 {
                     // Create a file to write to.

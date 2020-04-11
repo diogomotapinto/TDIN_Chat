@@ -8,12 +8,12 @@ using System.Collections.Generic;
 namespace Server
 {
 
-    class Server
+    public class BEServer
     {
         TcpListener server = null;
         Actions actions;
         List<User> onlineUsers;
-        public Server(string ip, int port)
+        public BEServer(string ip, int port)
         {
             IPAddress localAddr = IPAddress.Parse(ip);
             server = new TcpListener(localAddr, port);
@@ -135,18 +135,12 @@ namespace Server
 
         private void LogoutUser(User user)
         {
-            int i = 0;
-            int index = 0;
+            onlineUsers.Remove(user);
+            Console.WriteLine("Logged out  {0}", user.ToString());
             foreach (var elem in onlineUsers)
             {
-                if (elem.Name == user.Name)
-                {
-                    index = i;
-                }
-                i++;
+                Console.WriteLine(elem.ToString());
             }
-            onlineUsers.RemoveAt(index);
-            Console.WriteLine("Logged out  {0}", user.ToString());
         }
 
 
