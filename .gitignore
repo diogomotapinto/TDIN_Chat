@@ -4,7 +4,8 @@
 *.exe
 *.pdb
 *.cache
-.CopyComplete
+*.CopyComplete
+/*.csprojAssemblyReference.cache
 
 # Build results
 [Dd]ebug/
