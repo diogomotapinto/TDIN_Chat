@@ -31,16 +31,19 @@ namespace Chat_Client
                     messages = new Messages(Actions.LOGIN, login.getUser());
                     User user = login.getUser();
                     actions.LoggedIn += user.OnLoginUser;
+                    client.connect(messages);
+                    var logoutMSG = new Messages(Actions.LOGOUT, login.getUser());
+                    client.connect(logoutMSG);
                     break;
                 case 2:
                     Register register = new Register();
                     messages = new Messages(Actions.REGISTER, register.getUser());
+                    client.connect(messages);
                     break;
                 default:
                     return;
             }
-
-            client.connect(messages);
+            client.Close();
         }
     }
 }

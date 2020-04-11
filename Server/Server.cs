@@ -12,12 +12,13 @@ namespace Server
     {
         TcpListener server = null;
         Actions actions;
-
+        List<User> onlineUsers;
         public Server(string ip, int port)
         {
             IPAddress localAddr = IPAddress.Parse(ip);
             server = new TcpListener(localAddr, port);
             actions = new Actions();
+            onlineUsers = new List<User>();
             server.Start();
             StartListener();
         }
@@ -80,6 +81,10 @@ namespace Server
                     Console.WriteLine("{1}: Received: {0}", type, Thread.CurrentThread.ManagedThreadId);
                     loginUser((User)payload);
                     break;
+                case Actions.LOGOUT:
+                    Console.WriteLine("{1}: Received: {0}", type, Thread.CurrentThread.ManagedThreadId);
+                    LogoutUser((User)payload);
+                    break;
                 default:
                     Console.WriteLine(payload);
                     break;
@@ -120,11 +125,18 @@ namespace Server
                     Console.WriteLine("Logged  in {0}", user.ToString());
                     //this will return a list of all users with an account
                     actions.loginUser<User>(finalist);
+                    onlineUsers.Add(user);
                     return;
                 }
             }
 
             Console.WriteLine("Something is wrong {0}", user.ToString());
+        }
+
+        private void LogoutUser(User user)
+        {
+            onlineUsers.Remove(user);
+            Console.WriteLine("Logged out  {0}", user.ToString());
         }
 
 

@@ -10,19 +10,20 @@ namespace Chat_Client
         private IPAddress address;
         private Int32 port;
         private TcpClient client;
+        NetworkStream stream;
         public Client(string address, Int32 port)
         {
             this.port = port;
             this.address = IPAddress.Parse("127.0.0.1");
             this.client = new TcpClient(address, port);
-
+            stream = client.GetStream();
         }
 
         public void connect(Object message)
         {
             try
             {
-                NetworkStream stream = client.GetStream();
+
                 int count = 0;
                 while (count++ < 1)
                 {
@@ -43,13 +44,18 @@ namespace Chat_Client
                     Console.WriteLine("Received: {0}", response);
 
                 }
-                stream.Close();
-                client.Close();
+
             }
             catch (Exception e)
             {
                 Console.WriteLine("Exception: {0}", e);
             }
+        }
+
+        public void Close()
+        {
+            stream.Close();
+            client.Close();
         }
     }
 
