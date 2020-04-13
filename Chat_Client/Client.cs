@@ -40,8 +40,11 @@ namespace Chat_Client
                     Int32 bytes = stream.Read(data, 0, data.Length);
 
                     response = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
+                    if (response != Actions.ALL_GOOD)
+                    {
+                        Console.WriteLine("Something went wrong!");
+                    }
 
-                    Console.WriteLine("Received: {0}", response);
 
                 }
 

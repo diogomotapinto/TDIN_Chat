@@ -6,6 +6,8 @@
 *.cache
 *.CopyComplete
 /*.csprojAssemblyReference.cache
+DesignTimeBuild/
+v16/
 
 # Build results
 [Dd]ebug/

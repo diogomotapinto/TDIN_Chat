@@ -55,10 +55,10 @@ namespace Server
                 {
                     Messages hex = (Messages)Utils.ByteArrayToObject(bytes);
                     Reducer(hex.getHeader(), hex.getPayload());
-                    string str = "Hey Device!";
+                    string str = Actions.ALL_GOOD;
                     Byte[] reply = System.Text.Encoding.ASCII.GetBytes(str);
                     stream.Write(reply, 0, reply.Length);
-                    Console.WriteLine("{1}: Sent: {0}", str, Thread.CurrentThread.ManagedThreadId);
+                    //Console.WriteLine("{1}: Sent: {0}", str, Thread.CurrentThread.ManagedThreadId);
                 }
             }
             catch (Exception e)
