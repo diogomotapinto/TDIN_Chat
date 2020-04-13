@@ -31,8 +31,8 @@
             </RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="1" Grid.Row="1" Text="Log In" TextAlignment="Center" FontSize="36"></TextBlock>
-        <TextBox Grid.Column="1" Grid.Row="2" Text="Username" Height="36" FontSize="20"  Margin="20"></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="3" Text="Password" Height="36" FontSize="20" Margin="20"></TextBox>
-        <Button Grid.Column="1" Grid.Row="4" Content="Log In" Height="36" Margin="20"></Button>
+        <TextBox x:Name="username" Grid.Column="1" Grid.Row="2" Text="Username" Height="36" FontSize="20"  Margin="20"></TextBox>
+        <TextBox x:Name="password"  Grid.Column="1" Grid.Row="3" Text="Password" Height="36" FontSize="20" Margin="20"></TextBox>
+        <Button Click="Button_Click" Grid.Column="1" Grid.Row="4" Content="Log In" Height="36" Margin="20"></Button>
     </Grid>
 </Page>

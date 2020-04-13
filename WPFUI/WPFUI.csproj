@@ -61,7 +61,6 @@
     <Compile Include="StartingPage.xaml.cs">
       <DependentUpon>StartingPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
     <Page Include="LogIn.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -74,7 +73,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Operator.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -109,6 +107,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClientFRam\ClientFram.csproj">
+      <Project>{7761e11e-afaa-4d69-be1d-978b09d2880a}</Project>
+      <Name>ClientFram</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServerFram\ServerFram.csproj">
+      <Project>{cce6de94-2ed7-41a9-a988-1d6e0ff3073d}</Project>
+      <Name>ServerFram</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

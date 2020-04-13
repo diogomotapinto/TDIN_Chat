@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ClientFram;
+using ServerFram;
 
 namespace WFPREGISTER
 {
@@ -20,9 +22,21 @@ namespace WFPREGISTER
     /// </summary>
     public partial class Page1 : Page
     {
+        Client client;
         public Page1()
         {
             InitializeComponent();
+
+            client = new Client("127.0.0.1", 100);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string clientUsername = username.Text;
+            string clientPassword = password.Text;
+            Messages messages = new Messages(Actions.LOGIN, new User(clientPassword, clientPassword));
+            client.connect(messages);
+            client.Close();
         }
     }
 }

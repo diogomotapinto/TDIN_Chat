@@ -5,7 +5,7 @@ using ServerFram;
 
 namespace ClientFram
 {
-    class Client
+    public class Client
     {
         private IPAddress address;
         private Int32 port;

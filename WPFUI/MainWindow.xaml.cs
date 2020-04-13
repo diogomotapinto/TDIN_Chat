@@ -13,7 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using ClientFram;
+using System.Threading;
 
 namespace WFPREGISTER
 {
@@ -28,7 +29,10 @@ namespace WFPREGISTER
             Main.Content = new Page2(Main);
 
 
+
         }
+
+
 
 
     }

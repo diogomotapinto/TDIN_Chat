@@ -53,7 +53,7 @@ namespace ServerFram
                 while ((i = stream.Read(bytes, 0, bytes.Length)) != 0)
                 {
                     Messages hex = (Messages)Utils.ByteArrayToObject(bytes);
-                    Reducer(hex.getHeader(), hex.getPayload());
+                    Reducer(hex.getHeader(), hex.getPayload(), stream);
                     string str = Actions.ALL_GOOD;
                     Byte[] reply = System.Text.Encoding.ASCII.GetBytes(str);
                     stream.Write(reply, 0, reply.Length);
@@ -68,7 +68,7 @@ namespace ServerFram
         }
 
 
-        public virtual void Reducer(string type, object payload)
+        public virtual void Reducer(string type, object payload, NetworkStream stream)
         {
             switch (type)
             {
@@ -112,7 +112,7 @@ namespace ServerFram
         }
 
 
-        private void loginUser(User user)
+        private bool loginUser(User user)
         {
             var finalist = new List<User>();
             finalist = FileManager.ReadBinaryFile<User>();
@@ -125,11 +125,12 @@ namespace ServerFram
                     //this will return a list of all users with an account
                     actions.loginUser<User>(finalist);
                     onlineUsers.Add(user);
-                    return;
+                    return true;
                 }
             }
 
             Console.WriteLine("Something is wrong {0}", user.ToString());
+            return false;
         }
 
         private void LogoutUser(User user)

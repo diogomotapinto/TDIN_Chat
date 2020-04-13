@@ -12,7 +12,7 @@ namespace ClientFram
 
         }
 
-        public override void Reducer(string type, object payload)
+        public void Reducer(string type, object payload)
         {
             switch (type)
             {
