@@ -3,17 +3,20 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Collections.Generic;
+using System.Runtime.Remoting;
 
 namespace ServerFram
 {
 
     public class BEServer
     {
+        private const string configFilePath = "C:\\Users\\dnc18\\Prog\\TDIN_Chat\\ServerFram\\App.config";
         TcpListener server = null;
         Actions actions;
         List<User> onlineUsers;
         public BEServer(string ip, int port)
         {
+            RemotingConfiguration.Configure(configFilePath, false);
             IPAddress localAddr = IPAddress.Parse(ip);
             server = new TcpListener(localAddr, port);
             actions = new Actions();

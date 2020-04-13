@@ -1,20 +1,25 @@
 ﻿using System;
 using ServerFram;
 using System.Threading;
+using System.Runtime.Remoting;
 
 namespace ClientFram
 {
     class Program
     {
+        private const string clientConfigFile = @"C:\Users\dnc18\Prog\TDIN_Chat\ClientFRam\App.config";
         static void Main(string[] args)
         {
+            RemotingConfiguration.Configure(clientConfigFile, false);
             var visTh = new Thread(visualInterface);
             visTh.Start();
-            var receiverTh = new Thread(messageReceiver);
+            /*var receiverTh = new Thread(messageReceiver);
             visTh.Join();
             receiverTh.Start();
             var senderTh = new Thread(messageSender);
-            senderTh.Start();
+            senderTh.Start();*/
+
+            
         }
 
 
@@ -40,6 +45,21 @@ namespace ClientFram
             string clientPort = Console.ReadLine();
             Console.WriteLine("Starting Message Receiver...");
             ClientServer server = new ClientServer("127.0.0.1", Int32.Parse(clientPort));
+        }
+
+        public static void register()
+        {
+            UserController a = new UserController();
+            Register register = new Register();
+            if (a.register(register.getUser()))
+            {
+                Console.WriteLine("Registered successfully");
+            }
+            else
+            {
+                Console.WriteLine("Failed to register");
+            }
+            Console.ReadKey();
         }
 
         public static void visualInterface()
@@ -72,13 +92,15 @@ namespace ClientFram
                     client.connect(logoutMSG);
                     break;
                 case 2:
-                    Register register = new Register();
+                    /*Register register = new Register();
                     messages = new Messages(Actions.REGISTER, register.getUser());
-                    client.connect(messages);
+                    client.connect(messages);*/
+                    register();
                     break;
                 default:
                     return;
             }
+
             client.Close();
         }
     }
