@@ -54,9 +54,6 @@ namespace ServerFram
                 {
                     Messages hex = (Messages)Utils.ByteArrayToObject(bytes);
                     Reducer(hex.getHeader(), hex.getPayload(), stream);
-                    string str = Actions.ALL_GOOD;
-                    Byte[] reply = System.Text.Encoding.ASCII.GetBytes(str);
-                    stream.Write(reply, 0, reply.Length);
                     //Console.WriteLine("{1}: Sent: {0}", str, Thread.CurrentThread.ManagedThreadId);
                 }
             }
@@ -72,13 +69,19 @@ namespace ServerFram
         {
             switch (type)
             {
+
                 case Actions.REGISTER:
                     Console.WriteLine("{1}: Received: {0}", type, Thread.CurrentThread.ManagedThreadId);
                     registerUser((User)payload);
                     break;
                 case Actions.LOGIN:
                     Console.WriteLine("{1}: Received: {0}", type, Thread.CurrentThread.ManagedThreadId);
-                    loginUser((User)payload);
+                    if (loginUser((User)payload))
+                    {
+                        string str = Actions.ALL_GOOD;
+                        Byte[] reply = System.Text.Encoding.ASCII.GetBytes(str);
+                        stream.Write(reply, 0, reply.Length);
+                    }
                     break;
                 case Actions.LOGOUT:
                     Console.WriteLine("{1}: Received: {0}", type, Thread.CurrentThread.ManagedThreadId);
@@ -89,6 +92,7 @@ namespace ServerFram
                     break;
             }
 
+            stream.Close();
         }
 
 
