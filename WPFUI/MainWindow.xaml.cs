@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,25 +14,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFUI
+
+namespace WFPREGISTER
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    /// 
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
-            
             InitializeComponent();
-        }
+            Main.Content = new Page2(Main);
 
-        void send_message(Object sender, RoutedEventArgs e)
-        {
-            String str = textBox.Text;
-            textBlock.Inlines.Add(str + Environment.NewLine);
-            textBox.Text = "";
+
         }
 
 
