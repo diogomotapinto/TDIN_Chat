@@ -1,20 +1,25 @@
 ﻿using System;
 using ServerFram;
 using System.Threading;
+using System.Runtime.Remoting;
 
 namespace ClientFram
 {
     class Program
     {
+        private const string clientConfigFile = @"C:\Users\dnc18\Prog\TDIN_Chat\ClientFRam\App.config";
         static void Main(string[] args)
         {
+            RemotingConfiguration.Configure(clientConfigFile, false);
             var visTh = new Thread(visualInterface);
             visTh.Start();
-            var receiverTh = new Thread(messageReceiver);
+            /*var receiverTh = new Thread(messageReceiver);
             visTh.Join();
             receiverTh.Start();
             var senderTh = new Thread(messageSender);
-            senderTh.Start();
+            senderTh.Start();*/
+
+            
         }
 
 
@@ -42,7 +47,39 @@ namespace ClientFram
             ClientServer server = new ClientServer("127.0.0.1", Int32.Parse(clientPort));
         }
 
-        public static void visualInterface()
+        public static void register()
+        {
+            UserController a = new UserController();
+            Register register = new Register();
+            if (a.register(register.getUser()))
+            {
+                Console.WriteLine("Registered successfully");
+            }
+            else
+            {
+                Console.WriteLine("Failed to register");
+            }
+            Console.ReadKey();
+        }
+
+        public static void login()
+        {
+            UserController a = new UserController();
+            Login login = new Login();
+            User user = login.getUser();
+
+            if (a.login(user))
+            {
+                Console.WriteLine("Logged In!");
+            }
+            else
+            {
+                Console.WriteLine("Check your password.");
+            }
+            Console.ReadKey();
+        }
+
+            public static void visualInterface()
         {
             Console.WriteLine("What port?   ");
             String port = Console.ReadLine();
@@ -63,22 +100,18 @@ namespace ClientFram
             switch (Int32.Parse(action))
             {
                 case 1:
-                    Login login = new Login();
-                    messages = new Messages(Actions.LOGIN, login.getUser());
-                    User user = login.getUser();
-                    actions.LoggedIn += user.OnLoginUser;
-                    client.connect(messages);
-                    var logoutMSG = new Messages(Actions.LOGOUT, login.getUser());
-                    client.connect(logoutMSG);
+                    login();
                     break;
                 case 2:
-                    Register register = new Register();
+                    /*Register register = new Register();
                     messages = new Messages(Actions.REGISTER, register.getUser());
-                    client.connect(messages);
+                    client.connect(messages);*/
+                    register();
                     break;
                 default:
                     return;
             }
+
             client.Close();
         }
     }
