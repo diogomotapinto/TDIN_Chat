@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using ServerFram;
 namespace WPFUI
 {
     /// <summary>
@@ -20,9 +20,14 @@ namespace WPFUI
     /// </summary>
     public partial class Online : Page
     {
-        public Online()
+        UserController userController;
+        public Online(UserController userContoller)
         {
             InitializeComponent();
+            this.userController = userController;
+            Button button = new Button();
+            button.Content = "User x";
+            stack.Children.Add(button);
         }
     }
 }

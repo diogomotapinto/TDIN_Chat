@@ -9,6 +9,24 @@
       Title="Online">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20">
+            </RowDefinition>
+            <RowDefinition Height="*">
+            </RowDefinition>
+            <RowDefinition Height="20">
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <ScrollViewer  Grid.Column="1" Grid.Row="1">
+            <StackPanel x:Name="stack">
+
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
+
 </Page>

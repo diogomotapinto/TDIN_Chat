@@ -43,7 +43,7 @@ namespace WPFUI
 
             if (userController.login(user))
             {
-                frame.Navigate(new Online());
+                frame.Navigate(new Online(userController));
             }
             else
             {
