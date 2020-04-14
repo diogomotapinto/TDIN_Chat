@@ -7,7 +7,7 @@ namespace ClientFram
 {
     class Program
     {
-        private const string clientConfigFile = @"C:\Users\dnc18\Prog\TDIN_Chat\ClientFRam\App.config";
+        private const string clientConfigFile = @"C:\Users\Diogo\source\repos\TDIN_Chat\ClientFram\App.config";
         static void Main(string[] args)
         {
             RemotingConfiguration.Configure(clientConfigFile, false);
@@ -19,7 +19,7 @@ namespace ClientFram
             var senderTh = new Thread(messageSender);
             senderTh.Start();*/
 
-            
+
         }
 
 
@@ -79,7 +79,7 @@ namespace ClientFram
             Console.ReadKey();
         }
 
-            public static void visualInterface()
+        public static void visualInterface()
         {
             Console.WriteLine("What port?   ");
             String port = Console.ReadLine();

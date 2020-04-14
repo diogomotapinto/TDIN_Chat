@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Diogo\\source\\repos\\Chat_Project\\Server\\Server.csproj",
+      "projectUniqueName": "C:\\Users\\Diogo\\source\\repos\\TDIN_Chat\\Server\\Server.csproj",
       "projectName": "Server",
-      "projectPath": "C:\\Users\\Diogo\\source\\repos\\Chat_Project\\Server\\Server.csproj",
+      "projectPath": "C:\\Users\\Diogo\\source\\repos\\TDIN_Chat\\Server\\Server.csproj",
       "packagesPath": "C:\\Users\\Diogo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Diogo\\source\\repos\\Chat_Project\\Server\\obj\\",
+      "outputPath": "C:\\Users\\Diogo\\source\\repos\\TDIN_Chat\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Diogo\\AppData\\Roaming\\NuGet\\NuGet.Config",

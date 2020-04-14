@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "Server/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Server.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Server.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Server/1.0.0": {
+      "type": "project",
+      "path": "../Server/Server.csproj",
+      "msbuildProject": "../Server/Server.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "Server >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Diogo\\.nuget\\packages\\": {}
@@ -13,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Diogo\\source\\repos\\Chat_Project\\Chat_Client\\Chat_Client.csproj",
+      "projectUniqueName": "C:\\Users\\Diogo\\source\\repos\\TDIN_Chat\\Chat_Client\\Chat_Client.csproj",
       "projectName": "Chat_Client",
-      "projectPath": "C:\\Users\\Diogo\\source\\repos\\Chat_Project\\Chat_Client\\Chat_Client.csproj",
+      "projectPath": "C:\\Users\\Diogo\\source\\repos\\TDIN_Chat\\Chat_Client\\Chat_Client.csproj",
       "packagesPath": "C:\\Users\\Diogo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Diogo\\source\\repos\\Chat_Project\\Chat_Client\\obj\\",
+      "outputPath": "C:\\Users\\Diogo\\source\\repos\\TDIN_Chat\\Chat_Client\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Diogo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -32,7 +51,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Diogo\\source\\repos\\TDIN_Chat\\Server\\Server.csproj": {
+              "projectPath": "C:\\Users\\Diogo\\source\\repos\\TDIN_Chat\\Server\\Server.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

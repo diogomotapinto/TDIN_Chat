@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RRFJF2W2mwgjp/LpVpB9LrrZQrwctH/117n58RPpRuRn5kfn304i4NRoR0y8rzal04k3Cfj2JN4E9vgDFjxd7g==",
+  "dgSpecHash": "de1CcosnmufablDRYu6YDZOzY5znBgvUcczu+tawcd81qHNTHla4IJlRKb70zE3849Ff+C6vit4LJQXYuoc7SA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Diogo\\source\\repos\\Chat_Project\\Server\\Server.csproj",
+  "projectFilePath": "C:\\Users\\Diogo\\source\\repos\\TDIN_Chat\\Server\\Server.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

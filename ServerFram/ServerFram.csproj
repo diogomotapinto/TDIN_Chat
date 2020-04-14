@@ -46,11 +46,13 @@
     <Compile Include="Actions.cs" />
     <Compile Include="BEServer.cs" />
     <Compile Include="FileManager.cs" />
+    <Compile Include="Interactions.cs" />
     <Compile Include="Logged.cs" />
     <Compile Include="Messages.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UserController.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
