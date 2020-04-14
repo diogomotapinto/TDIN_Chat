@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
-      "Server/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "compile": {
-          "bin/placeholder/Server.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Server.dll": {}
-        }
-      }
-    }
+    ".NETCoreApp,Version=v3.1": {}
   },
-  "libraries": {
-    "Server/1.0.0": {
-      "type": "project",
-      "path": "../Server/Server.csproj",
-      "msbuildProject": "../Server/Server.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": [
-      "Server >= 1.0.0"
-    ]
+    ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
     "C:\\Users\\Diogo\\.nuget\\packages\\": {}
@@ -51,11 +32,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {
-            "C:\\Users\\Diogo\\source\\repos\\Chat_Project\\Server\\Server.csproj": {
-              "projectPath": "C:\\Users\\Diogo\\source\\repos\\Chat_Project\\Server\\Server.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
