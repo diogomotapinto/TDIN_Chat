@@ -12,37 +12,39 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ClientFram;
 using ServerFram;
 
-namespace WFPREGISTER
+namespace WPFUI
 {
     /// <summary>
     /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class RegisterPage : Page
     {
-        Client client;
         UserController userController;
-        public Page1(UserController userController)
+        public RegisterPage(UserController userController)
         {
             InitializeComponent();
             this.userController = userController;
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
             string clientUsername = username.Text;
             string clientPassword = password.Text;
 
-            Login login = new Login();
+            if (password.Text != confim.Text)
+            {
+                MessageBox.Show("Something went wrong - Login!");
+                return;
+            }
+
+
             User user = new User(clientUsername, clientPassword);
 
-            if (userController.login(user))
+            if (userController.register(user))
             {
-                MessageBox.Show("Login Successfull!");
+                MessageBox.Show("Register Successfull!");
             }
             else
             {

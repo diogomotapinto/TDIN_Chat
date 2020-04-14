@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Diogo\source\repos\Chat_Project\WPFUI\obj\Debug\
+C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\obj\Debug\
 WPFUI
 none
 false
 DEBUG;TRACE
-C:\Users\Diogo\source\repos\Chat_Project\WPFUI\App.xaml
-31929758747
+C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\App.xaml
+4-482232405
 
-8880391849
-15-1488118939
-LogIn.xaml;MainWindow.xaml;StartingPage.xaml;
+9655650011
+151142091224
+LogIn.xaml;MainWindow.xaml;RegisterPage.xaml;StartingPage.xaml;
 
 False
 

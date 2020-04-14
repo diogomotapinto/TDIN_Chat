@@ -27,9 +27,6 @@ namespace WFPREGISTER
         {
             InitializeComponent();
             Main.Content = new Page2(Main);
-
-
-
         }
 
 
