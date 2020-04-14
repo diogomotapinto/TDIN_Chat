@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using ClientFram;
 using ServerFram;
 
-namespace WFPREGISTER
+namespace WPFUI
 {
     /// <summary>
     /// Interaction logic for Page1.xaml
@@ -24,11 +24,12 @@ namespace WFPREGISTER
     {
         Client client;
         UserController userController;
-        public Page1(UserController userController)
+        Frame frame;
+        public Page1(UserController userController, Frame frame)
         {
             InitializeComponent();
             this.userController = userController;
-
+            this.frame = frame;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -42,7 +43,7 @@ namespace WFPREGISTER
 
             if (userController.login(user))
             {
-                MessageBox.Show("Login Successfull!");
+                frame.Navigate(new Online());
             }
             else
             {

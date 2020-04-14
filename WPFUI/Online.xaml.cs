@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,24 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ClientFram;
-using System.Threading;
 
 namespace WPFUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Online.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Online : Page
     {
-        public MainWindow()
+        public Online()
         {
             InitializeComponent();
-            Main.Content = new Page2(Main);
         }
-
-
-
-
     }
 }

@@ -14,9 +14,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Runtime.Remoting;
 using ServerFram;
-using WPFUI;
 
-namespace WFPREGISTER
+
+namespace WPFUI
 {
     /// <summary>
     /// Interaction logic for Page2.xaml
@@ -37,7 +37,7 @@ namespace WFPREGISTER
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            frame.Content = new Page1(userController);
+            frame.Content = new Page1(userController, frame);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
