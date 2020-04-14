@@ -62,7 +62,24 @@ namespace ClientFram
             Console.ReadKey();
         }
 
-        public static void visualInterface()
+        public static void login()
+        {
+            UserController a = new UserController();
+            Login login = new Login();
+            User user = login.getUser();
+
+            if (a.login(user))
+            {
+                Console.WriteLine("Logged In!");
+            }
+            else
+            {
+                Console.WriteLine("Check your password.");
+            }
+            Console.ReadKey();
+        }
+
+            public static void visualInterface()
         {
             Console.WriteLine("What port?   ");
             String port = Console.ReadLine();
@@ -83,13 +100,7 @@ namespace ClientFram
             switch (Int32.Parse(action))
             {
                 case 1:
-                    Login login = new Login();
-                    messages = new Messages(Actions.LOGIN, login.getUser());
-                    User user = login.getUser();
-                    actions.LoggedIn += user.OnLoginUser;
-                    client.connect(messages);
-                    var logoutMSG = new Messages(Actions.LOGOUT, login.getUser());
-                    client.connect(logoutMSG);
+                    login();
                     break;
                 case 2:
                     /*Register register = new Register();

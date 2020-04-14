@@ -10,35 +10,34 @@ namespace ServerFram
     {
         Actions actions;
         List<User> onlineUsers;
-        List<string> test;
 
         public UserController()
         {
             actions = new Actions();
             onlineUsers = new List<User>();
-            test = new List<string>();
             Console.WriteLine("New User controller created");
-
-            test.Add("a");
         }
         public bool login(User user)
         {
-            var finalist = new List<User>();
-            finalist = FileManager.ReadBinaryFile<User>();
+            var registeredUsers = new List<User>();
+            registeredUsers = FileManager.ReadBinaryFile<User>();
 
-            foreach (var elem in finalist)
+            Console.WriteLine("Login request received from: {0}.", user.ToString());
+
+            foreach (var elem in registeredUsers)
             {
                 if (elem.ToString() == user.ToString() && user.Password == elem.Password)
                 {
                     Console.WriteLine("Logged  in {0}", user.ToString());
                     //this will return a list of all users with an account
-                    actions.loginUser<User>(finalist);
+                    actions.loginUser<User>(registeredUsers);
                     onlineUsers.Add(user);
                     return true;
                 }
             }
 
-            Console.WriteLine("Falied to auth {0}", user.ToString());
+            Console.WriteLine("Falied to auth: {0}", user.ToString());
+
             return false;
         }
 
@@ -48,46 +47,35 @@ namespace ServerFram
             
             Console.WriteLine("Logged out  {0}", user.ToString());
             
-            foreach (var elem in onlineUsers)
+            /* foreach (var elem in onlineUsers)
             {
                 Console.WriteLine(elem.ToString());
-            }
+            } */
 
             return true;
         }
 
-        public bool register(User user)
+        public bool register(User newUser)
         {
-            Console.WriteLine("Attemp to register {0}", user.ToString());
+            Console.WriteLine("Attemp to register {0}", newUser.ToString());
+    
+            var registeredUsers = new List<User>();
 
-            foreach (string elem in test)
+            registeredUsers = FileManager.ReadBinaryFile<User>();
+
+            foreach (var registeredUser in registeredUsers)
             {
-                Console.WriteLine(elem);
-
-                if(elem.Equals(user.Name))
+                if (registeredUser.ToString() == newUser.ToString())
                 {
-                    Console.WriteLine("{0} already exists!", user.Name);
+                    Console.WriteLine("User {0} already has an account", newUser.ToString());
                     return false;
                 }
             }
 
-            test.Add(user.Name);
-                /* var finalist = new List<User>();
-                finalist = FileManager.ReadBinaryFile<User>();
-
-
-                foreach (var elem in finalist)
-                {
-                    if (elem.ToString() == user.ToString())
-                    {
-                        Console.WriteLine("User {0} already has an account", user.ToString());
-                        return false;
-                    }
-                }
-
-                finalist.Add(user);
-                FileManager.writeStream(finalist);
-                Console.WriteLine("Hello {0}", user.ToString()); */
+            registeredUsers.Add(newUser);
+            FileManager.writeStream(registeredUsers);
+            
+            Console.WriteLine("Registered new user: {0}", newUser.ToString());
 
             return true;
         }
