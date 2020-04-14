@@ -25,9 +25,15 @@ namespace WPFUI
         {
             InitializeComponent();
             this.userController = userController;
-            Button button = new Button();
-            button.Content = "User x";
-            stack.Children.Add(button);
+
+            List<User> onlineUsers = userContoller.getOnline();
+            foreach (var elem in onlineUsers)
+            {
+                Button button = new Button();
+                button.Content = elem.ToString();
+                stack.Children.Add(button);
+            }
+
         }
     }
 }

@@ -41,12 +41,19 @@ namespace ServerFram
             return false;
         }
 
+
+        public List<User> getOnline()
+        {
+            return onlineUsers;
+        }
+
+
         public bool logout(User user)
         {
             onlineUsers.Remove(user);
-            
+
             Console.WriteLine("Logged out  {0}", user.ToString());
-            
+
             /* foreach (var elem in onlineUsers)
             {
                 Console.WriteLine(elem.ToString());
@@ -58,7 +65,7 @@ namespace ServerFram
         public bool register(User newUser)
         {
             Console.WriteLine("Attemp to register {0}", newUser.ToString());
-    
+
             var registeredUsers = new List<User>();
 
             registeredUsers = FileManager.ReadBinaryFile<User>();
@@ -74,7 +81,7 @@ namespace ServerFram
 
             registeredUsers.Add(newUser);
             FileManager.writeStream(registeredUsers);
-            
+
             Console.WriteLine("Registered new user: {0}", newUser.ToString());
 
             return true;
