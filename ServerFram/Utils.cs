@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -33,4 +34,9 @@ namespace ServerFram
         }
 
     }
+
+    /* public static bool checkList<T>(User user, List<T> list)
+    {
+        return true;
+    }*/
 }

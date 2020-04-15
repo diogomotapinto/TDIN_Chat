@@ -9,14 +9,14 @@ namespace ServerFram
     public class UserController : MarshalByRefObject, Interactions
     {
         Actions actions;
-        List<User> onlineUsers;
-
+        List<User> onlineUsers; 
         public UserController()
         {
             actions = new Actions();
             onlineUsers = new List<User>();
             Console.WriteLine("New User controller created");
         }
+
         public bool login(User user)
         {
             var registeredUsers = new List<User>();

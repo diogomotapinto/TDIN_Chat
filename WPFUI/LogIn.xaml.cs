@@ -20,6 +20,7 @@ namespace WPFUI
     /// <summary>
     /// Interaction logic for Page1.xaml
     /// </summary>
+    [Serializable]
     public partial class Page1 : Page
     {
         Client client;
@@ -40,15 +41,18 @@ namespace WPFUI
 
             Login login = new Login();
             User user = new User(clientUsername, clientPassword);
+            Online onlinePage = new Online(userController);
+            // userController.EventHandler += onlinePage.Logged;
 
             if (userController.login(user))
             {
-                frame.Navigate(new Online(userController));
+                frame.Navigate(onlinePage);
             }
             else
             {
                 MessageBox.Show("Something went wrong - Login!");
             }
         }
+
     }
 }
