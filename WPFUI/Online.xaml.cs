@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ServerFram;
+using System.Threading;
+
 namespace WPFUI
 {
     /// <summary>
@@ -27,13 +29,14 @@ namespace WPFUI
             this.userController = userController;
 
             List<User> onlineUsers = userContoller.getOnline();
+
             foreach (var elem in onlineUsers)
             {
+                Console.WriteLine(elem.ToString());
                 Button button = new Button();
                 button.Content = elem.ToString();
                 stack.Children.Add(button);
             }
-
         }
     }
 }
