@@ -9,7 +9,19 @@ namespace ServerFram
     public class UserController : MarshalByRefObject, Interactions
     {
         Actions actions;
-        List<User> onlineUsers; 
+        List<User> onlineUsers;
+        public delegate void LoggedEventHandler(object source, EventArgs args);
+        public event LoggedEventHandler Logged;
+
+        [System.Runtime.Remoting.Messaging.OneWay]
+        protected virtual void OnLogged()
+        {
+            if (Logged != null)
+            {
+                Logged(this, EventArgs.Empty);
+            }
+        }
+
         public UserController()
         {
             actions = new Actions();
@@ -32,6 +44,7 @@ namespace ServerFram
                     //this will return a list of all users with an account
                     actions.loginUser<User>(registeredUsers);
                     onlineUsers.Add(user);
+                    OnLogged();
                     return true;
                 }
             }

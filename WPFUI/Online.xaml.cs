@@ -20,6 +20,7 @@ namespace WPFUI
     /// <summary>
     /// Interaction logic for Online.xaml
     /// </summary>
+
     public partial class Online : Page
     {
         UserController userController;
@@ -27,6 +28,10 @@ namespace WPFUI
         {
             InitializeComponent();
             this.userController = userController;
+            LoggedIn loggedIn = new LoggedIn();
+
+            //userContoller.Logged += loggedIn.OnLogged;
+
 
             List<User> onlineUsers = userContoller.getOnline();
 
@@ -38,5 +43,7 @@ namespace WPFUI
                 stack.Children.Add(button);
             }
         }
+
+
     }
 }
