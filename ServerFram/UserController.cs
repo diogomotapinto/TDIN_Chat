@@ -22,6 +22,18 @@ namespace ServerFram
             }
         }
 
+        public User findUser(String name, List<User> list)
+        {
+            foreach (var elem in list)
+            {
+                if (name == elem.ToString())
+                {
+                    return elem;
+                }
+            }
+            return null;
+        }
+
         public UserController()
         {
             actions = new Actions();
@@ -38,7 +50,7 @@ namespace ServerFram
 
             foreach (var elem in registeredUsers)
             {
-                if (elem.ToString() == user.ToString() && user.Password == elem.Password)
+                if ((elem.ToString() == user.ToString() && user.Password == elem.Password) && findUser(user.ToString(), onlineUsers) == null)
                 {
                     Console.WriteLine("Logged  in {0}", user.ToString());
                     //this will return a list of all users with an account

@@ -54,3 +54,5 @@ C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\obj\Debug\WPFUI.csproj.CoreCompileIn
 C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\obj\Debug\WPFUI.csproj.CopyComplete
 C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\obj\Debug\WPFUI.exe
 C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\obj\Debug\WPFUI.pdb
+C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\obj\Debug\Chat.g.cs
+C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\obj\Debug\Chat.baml

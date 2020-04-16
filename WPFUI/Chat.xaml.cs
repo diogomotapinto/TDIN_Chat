@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ServerFram;
 
 namespace WPFUI
 {
@@ -20,7 +21,7 @@ namespace WPFUI
     /// </summary>
     public partial class Chat : Page
     {
-        public Chat()
+        public Chat(User user, UserController userController)
         {
             InitializeComponent();
         }
