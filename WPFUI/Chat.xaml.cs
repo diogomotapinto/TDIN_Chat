@@ -37,7 +37,7 @@ namespace WPFUI
             Console.WriteLine("Select Client Port:  ");
             string clientPort = Console.ReadLine();
             Console.WriteLine("Starting Message Receiver...");
-            ClientServer server = new ClientServer("127.0.0.1", userController.getMe().Port, chat);
+            ClientServer server = new ClientServer("127.0.0.1", userController.getMe().Port);
         }
 
     }
