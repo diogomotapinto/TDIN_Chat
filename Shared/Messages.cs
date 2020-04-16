@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace ServerFram
+namespace Shared
 {
     [Serializable()]
     public class Messages

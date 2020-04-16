@@ -12,9 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ServerFram;
+using Shared;
 using System.Threading;
-using ClientFram;
+using UserDatabase;
 
 namespace WPFUI
 {
@@ -23,9 +23,9 @@ namespace WPFUI
     /// </summary>
     public partial class Chat : Page
     {
-        public UserController userController;
+        public Users userController;
         Dictionary<Conversation, SimpleMessage> chat;
-        public Chat(User user, UserController userController)
+        public Chat(User user, Users userController)
         {
             InitializeComponent();
             this.userController = userController;
@@ -37,7 +37,7 @@ namespace WPFUI
             Console.WriteLine("Select Client Port:  ");
             string clientPort = Console.ReadLine();
             Console.WriteLine("Starting Message Receiver...");
-            ClientServer server = new ClientServer("127.0.0.1", userController.getMe().Port);
+            // ClientServer server = new ClientServer("127.0.0.1", userController.getMe().Port);
         }
 
     }

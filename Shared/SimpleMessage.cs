@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ServerFram;
-namespace WPFUI
+
+namespace Shared
 {
-    class SimpleMessage
+    public class SimpleMessage
     {
         private User from;
         private User to;

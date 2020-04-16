@@ -7,8 +7,8 @@ namespace ClientFram
 {
     class Program : MarshalByRefObject
     {
-        private const string clientConfigFile = @"C:\Users\dnc18\Prog\TDIN_Chat\ClientFRam\App.config";
-        
+        // private const string clientConfigFile = @"C:\Users\dnc18\Prog\TDIN_Chat\ClientFRam\App.config";
+        private const string clientConfigFile = @"C:\Users\Diogo\source\repos\TDIN_Chat\ClientFram\App.config";
         private static User loggedUser = null;
         static void Main(string[] args)
         {
@@ -20,17 +20,18 @@ namespace ClientFram
                 Program prog = new Program();
                 controller.NewAuthEvent += prog.newAuthEventHandler;
 
-            } catch(Exception e)
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(value: e.InnerException.Message);
             }
-            
+
             visualInterface(controller);
-         }
+        }
 
         public void newAuthEventHandler(AuthenticationEventArgs arg)
         {
-            if(arg.Login)
+            if (arg.Login)
             {
                 Console.WriteLine("{0} has logged in.", arg.user.Name);
             }
@@ -88,7 +89,7 @@ namespace ClientFram
         {
             bool live = true;
 
-            while(live)
+            while (live)
             {
                 Console.WriteLine("--------------------------------------");
                 Console.WriteLine("--------------------------------------");

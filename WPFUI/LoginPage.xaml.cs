@@ -12,8 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ClientFram;
-using ServerFram;
+using Shared;
+using UserDatabase;
 
 namespace WPFUI
 {
@@ -21,12 +21,12 @@ namespace WPFUI
     /// Interaction logic for Page1.xaml
     /// </summary>
     [Serializable]
-    public partial class Page1 : Page
+    public partial class LoginPage : Page
     {
-        Client client;
-        UserController userController;
+
+        Users userController;
         Frame frame;
-        public Page1(UserController userController, Frame frame)
+        public LoginPage(Users userController, Frame frame)
         {
             InitializeComponent();
             this.userController = userController;
@@ -38,8 +38,6 @@ namespace WPFUI
 
             string clientUsername = username.Text;
             string clientPassword = password.Text;
-
-            Login login = new Login();
             User user = new User(clientUsername, clientPassword);
 
             // userController.EventHandler += onlinePage.Logged;

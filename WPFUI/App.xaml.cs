@@ -15,18 +15,7 @@ namespace WPFUI
     /// </summary>
     public partial class App : Application
     {
-        Client client;
-        public void connect()
-        {
-            var visTh = new Thread(connecting);
-            visTh.Start();
 
-        }
-
-        public void connecting()
-        {
-            client = new Client("127.0.0.1", 100);
-        }
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {

@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ServerFram;
+using UserDatabase;
+using Shared;
 
 namespace WPFUI
 {
@@ -21,8 +22,8 @@ namespace WPFUI
     /// </summary>
     public partial class RegisterPage : Page
     {
-        UserController userController;
-        public RegisterPage(UserController userController)
+        Users userController;
+        public RegisterPage(Users userController)
         {
             InitializeComponent();
             this.userController = userController;

@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ServerFram;
+using UserDatabase;
+using Shared;
 using System.Threading;
 
 namespace WPFUI
@@ -23,14 +24,14 @@ namespace WPFUI
 
     public partial class Online : Page
     {
-        UserController userController;
+        Users userController;
         Frame frame;
-        public Online(UserController userContoller, Frame frame)
+        public Online(Users userContoller, Frame frame)
         {
             InitializeComponent();
             this.frame = frame;
             this.userController = userController;
-            LoggedIn loggedIn = new LoggedIn();
+
 
             //userContoller.Logged += loggedIn.OnLogged;
 

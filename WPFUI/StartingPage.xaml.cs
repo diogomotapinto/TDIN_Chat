@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Runtime.Remoting;
-using ServerFram;
+using UserDatabase;
 
 
 namespace WPFUI
@@ -25,19 +25,19 @@ namespace WPFUI
     {
         Frame frame;
         private const string clientConfigFile = @"C:\Users\Diogo\source\repos\TDIN_Chat\ClientFram\App.config";
-        UserController userController;
+        Users userController;
         public Page2(Frame obj)
         {
             InitializeComponent();
             RemotingConfiguration.Configure(clientConfigFile, false);
-            userController = new UserController();
+            userController = new Users();
             frame = obj;
 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            frame.Content = new Page1(userController, frame);
+            frame.Content = new LoginPage(userController, frame);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
