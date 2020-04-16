@@ -5,7 +5,7 @@ using ServerFram;
 
 namespace ClientFram
 {
-    class ClientServer : BEServer
+    public class ClientServer : BEServer
     {
         public ClientServer(string ip, int port) : base(ip, port)
         {

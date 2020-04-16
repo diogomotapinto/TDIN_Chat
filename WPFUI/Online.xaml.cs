@@ -24,9 +24,11 @@ namespace WPFUI
     public partial class Online : Page
     {
         UserController userController;
-        public Online(UserController userContoller)
+        Frame frame;
+        public Online(UserController userContoller, Frame frame)
         {
             InitializeComponent();
+            this.frame = frame;
             this.userController = userController;
             LoggedIn loggedIn = new LoggedIn();
 
@@ -40,8 +42,18 @@ namespace WPFUI
                 Console.WriteLine(elem.ToString());
                 Button button = new Button();
                 button.Content = elem.ToString();
+                button.Click += Button_Click;
                 stack.Children.Add(button);
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            Chat chatPage = new Chat(new User("ola", "ola"), userController);
+            frame.Navigate(chatPage);
+
         }
 
 

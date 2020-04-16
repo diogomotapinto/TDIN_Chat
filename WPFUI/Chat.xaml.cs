@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ServerFram;
+using System.Threading;
+using ClientFram;
 
 namespace WPFUI
 {
@@ -24,6 +26,16 @@ namespace WPFUI
         public Chat(User user, UserController userController)
         {
             InitializeComponent();
+            Thread t = new Thread(messageReceiver);
         }
+
+        public static void messageReceiver()
+        {
+            Console.WriteLine("Select Client Port:  ");
+            string clientPort = Console.ReadLine();
+            Console.WriteLine("Starting Message Receiver...");
+            ClientServer server = new ClientServer("127.0.0.1", 110);
+        }
+
     }
 }

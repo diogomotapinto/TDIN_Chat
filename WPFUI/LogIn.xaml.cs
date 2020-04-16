@@ -41,12 +41,12 @@ namespace WPFUI
 
             Login login = new Login();
             User user = new User(clientUsername, clientPassword);
-            
+
             // userController.EventHandler += onlinePage.Logged;
 
             if (userController.login(user))
             {
-                Online onlinePage = new Online(userController);
+                Online onlinePage = new Online(userController, frame);
                 frame.Navigate(onlinePage);
             }
             else
