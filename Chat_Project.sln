@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerFram", "ServerFram\Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientFram", "ClientFRam\ClientFram.csproj", "{7761E11E-AFAA-4D69-BE1D-978B09D2880A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{4270DDFF-77E5-4AC1-A79A-60399061EEED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserDatabase", "UserDatabase\UserDatabase.csproj", "{AD4751BC-414A-44C4-A2F7-6BB4500022AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{7761E11E-AFAA-4D69-BE1D-978B09D2880A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7761E11E-AFAA-4D69-BE1D-978B09D2880A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7761E11E-AFAA-4D69-BE1D-978B09D2880A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4270DDFF-77E5-4AC1-A79A-60399061EEED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4270DDFF-77E5-4AC1-A79A-60399061EEED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4270DDFF-77E5-4AC1-A79A-60399061EEED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4270DDFF-77E5-4AC1-A79A-60399061EEED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD4751BC-414A-44C4-A2F7-6BB4500022AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD4751BC-414A-44C4-A2F7-6BB4500022AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD4751BC-414A-44C4-A2F7-6BB4500022AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD4751BC-414A-44C4-A2F7-6BB4500022AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CCE6DE94-2ED7-41A9-A988-1D6E0FF3073D}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>ServerFram</RootNamespace>
-    <AssemblyName>ServerFram</AssemblyName>
+    <ProjectGuid>{AD4751BC-414A-44C4-A2F7-6BB4500022AB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UserDatabase</RootNamespace>
+    <AssemblyName>UserDatabase</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,26 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Messages.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="FileManager.cs" />
+    <Compile Include="Interactions.cs" />
+    <Compile Include="Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ClientFRam\ClientFram.csproj">
-      <Project>{7761e11e-afaa-4d69-be1d-978b09d2880a}</Project>
-      <Name>ClientFram</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Shared\Shared.csproj">
       <Project>{4270ddff-77e5-4ac1-a79a-60399061eeed}</Project>
       <Name>Shared</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UserDatabase\UserDatabase.csproj">
-      <Project>{ad4751bc-414a-44c4-a2f7-6bb4500022ab}</Project>
-      <Name>UserDatabase</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
