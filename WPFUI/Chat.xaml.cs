@@ -23,18 +23,21 @@ namespace WPFUI
     /// </summary>
     public partial class Chat : Page
     {
+        public UserController userController;
+        Dictionary<Conversation, SimpleMessage> chat;
         public Chat(User user, UserController userController)
         {
             InitializeComponent();
+            this.userController = userController;
             Thread t = new Thread(messageReceiver);
         }
 
-        public static void messageReceiver()
+        public void messageReceiver()
         {
             Console.WriteLine("Select Client Port:  ");
             string clientPort = Console.ReadLine();
             Console.WriteLine("Starting Message Receiver...");
-            ClientServer server = new ClientServer("127.0.0.1", 110);
+            ClientServer server = new ClientServer("127.0.0.1", userController.getMe().Port, chat);
         }
 
     }

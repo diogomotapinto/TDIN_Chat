@@ -10,6 +10,7 @@ namespace ServerFram
     {
         Actions actions;
         List<User> onlineUsers;
+        User me;
         public delegate void LoggedEventHandler(object source, EventArgs args);
         public event LoggedEventHandler Logged;
 
@@ -38,7 +39,13 @@ namespace ServerFram
         {
             actions = new Actions();
             onlineUsers = new List<User>();
+            me = null;
             Console.WriteLine("New User controller created");
+        }
+
+        public User getMe()
+        {
+            return me;
         }
 
         public bool login(User user)
@@ -56,6 +63,7 @@ namespace ServerFram
                     //this will return a list of all users with an account
                     actions.loginUser<User>(registeredUsers);
                     onlineUsers.Add(user);
+                    me = user;
                     OnLogged();
                     return true;
                 }

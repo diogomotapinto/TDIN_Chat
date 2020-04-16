@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Text;
 using ServerFram;
 
+
 namespace ClientFram
 {
     public class ClientServer : BEServer
     {
+
         public ClientServer(string ip, int port) : base(ip, port)
         {
 
         }
+
+
 
         public void Reducer(string type, object payload)
         {

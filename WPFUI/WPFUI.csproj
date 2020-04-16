@@ -58,6 +58,8 @@
     <Compile Include="Chat.xaml.cs">
       <DependentUpon>Chat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SimpleMessage.cs" />
+    <Compile Include="Conversation.cs" />
     <Compile Include="LoggedIn.cs" />
     <Compile Include="LogIn.xaml.cs">
       <DependentUpon>LogIn.xaml</DependentUpon>
