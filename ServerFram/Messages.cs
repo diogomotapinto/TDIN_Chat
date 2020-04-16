@@ -23,7 +23,5 @@ namespace ServerFram
         {
             return this.payload;
         }
-
-
     }
 }

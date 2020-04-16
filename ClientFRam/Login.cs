@@ -1,6 +1,6 @@
-﻿using ServerFram;
-using System.IO;
+﻿using System.IO;
 using System;
+using Shared;
 
 namespace ClientFram
 {

@@ -43,8 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client.cs" />
-    <Compile Include="ClientServer.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -54,9 +52,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ServerFram\ServerFram.csproj">
-      <Project>{cce6de94-2ed7-41a9-a988-1d6e0ff3073d}</Project>
-      <Name>ServerFram</Name>
+    <ProjectReference Include="..\Shared\Shared.csproj">
+      <Project>{4270ddff-77e5-4ac1-a79a-60399061eeed}</Project>
+      <Name>Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UserDatabase\UserDatabase.csproj">
+      <Project>{ad4751bc-414a-44c4-a2f7-6bb4500022ab}</Project>
+      <Name>UserDatabase</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

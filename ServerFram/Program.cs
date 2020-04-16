@@ -1,20 +1,18 @@
 ﻿using System;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
+using System.Runtime.Remoting;
 
 namespace ServerFram
 {
     class Program
     {
-        private const int portNum = 13;
+        private const string configFilePath = @"C:\Users\dnc18\Prog\TDIN_Chat\ServerFram\App.config";
 
         static void Main(string[] args)
-        {
-            Console.WriteLine("Starting Server...");
-            BEServer server = new BEServer("127.0.0.1", 100);
+        { 
+            RemotingConfiguration.Configure(configFilePath, false);
+            Console.WriteLine("[Server] hosting User Manager");
+            Console.WriteLine("Press Enter to exit");
+            Console.ReadLine();
         }
-
-
     }
 }

@@ -1,57 +1,49 @@
 ﻿using System;
-using ServerFram;
-using System.Threading;
 using System.Runtime.Remoting;
+using Shared;
+using UserDatabase;
 
 namespace ClientFram
 {
-    class Program
+    class Program : MarshalByRefObject
     {
-        private const string clientConfigFile = @"C:\Users\Diogo\source\repos\TDIN_Chat\ClientFram\App.config";
+        private const string clientConfigFile = @"C:\Users\dnc18\Prog\TDIN_Chat\ClientFRam\App.config";
+        
+        private static User loggedUser = null;
         static void Main(string[] args)
         {
-            RemotingConfiguration.Configure(clientConfigFile, false);
-            var visTh = new Thread(visualInterface);
-            visTh.Start();
-            /*var receiverTh = new Thread(messageReceiver);
-            visTh.Join();
-            receiverTh.Start();
-            var senderTh = new Thread(messageSender);
-            senderTh.Start();*/
-
-
-        }
-
-
-        public static void messageSender()
-        {
-            Console.WriteLine("Port of the other peer:   ");
-            String port = Console.ReadLine();
-            bool done = false;
-            Client client = new Client("127.0.0.1", Int32.Parse(port));
-            Messages messages;
-            while (!done)
+            Users controller = null;
+            try
             {
-                Console.WriteLine("Write Message:   ");
-                string message = Console.ReadLine();
-                messages = new Messages(Actions.DIRECT_MESSAGE, message);
-                client.connect(messages);
+                RemotingConfiguration.Configure(clientConfigFile, false);
+                controller = new Users();
+                Program prog = new Program();
+                controller.NewAuthEvent += prog.newAuthEventHandler;
+
+            } catch(Exception e)
+            {
+                Console.WriteLine(value: e.InnerException.Message);
+            }
+            
+            visualInterface(controller);
+         }
+
+        public void newAuthEventHandler(AuthenticationEventArgs arg)
+        {
+            if(arg.Login)
+            {
+                Console.WriteLine("{0} has logged in.", arg.user.Name);
+            }
+            else
+            {
+                Console.WriteLine("{0} has logged out", arg.user.Name);
             }
         }
 
-        public static void messageReceiver()
+        public static void register(Users controller)
         {
-            Console.WriteLine("Select Client Port:  ");
-            string clientPort = Console.ReadLine();
-            Console.WriteLine("Starting Message Receiver...");
-            ClientServer server = new ClientServer("127.0.0.1", Int32.Parse(clientPort));
-        }
-
-        public static void register()
-        {
-            UserController a = new UserController();
             Register register = new Register();
-            if (a.register(register.getUser()))
+            if (controller.register(register.getUser()))
             {
                 Console.WriteLine("Registered successfully");
             }
@@ -62,14 +54,14 @@ namespace ClientFram
             Console.ReadKey();
         }
 
-        public static void login()
+        public static void login(Users controller)
         {
-            UserController a = new UserController();
             Login login = new Login();
             User user = login.getUser();
 
-            if (a.login(user))
+            if (controller.login(user))
             {
+                loggedUser = user;
                 Console.WriteLine("Logged In!");
             }
             else
@@ -77,43 +69,53 @@ namespace ClientFram
                 Console.WriteLine("Check your password.");
 
             }
-            Console.ReadKey();
         }
 
-        public static void visualInterface()
+        public static bool logout(Users controller)
         {
-            Console.WriteLine("What port?   ");
-            String port = Console.ReadLine();
-            Actions actions = new Actions();
-            Client client = new Client("127.0.0.1", Int32.Parse(port));
-            Messages messages;
-            Console.WriteLine("--------------------------------------");
-            Console.WriteLine("--------------------------------------");
-            Console.WriteLine("--------------------------------------");
-            Console.WriteLine("-------------Welcome------------------");
-            Console.WriteLine("--------------------------------------");
-            Console.WriteLine("-------------1-Login------------------");
-            Console.WriteLine("-------------2-Register---------------");
-            Console.WriteLine("--------------------------------------");
-            Console.WriteLine("--------------------------------------");
-            Console.WriteLine("--------------------------------------");
-            string action = Console.ReadLine();
-            switch (Int32.Parse(action))
+            if (loggedUser != null && controller.logout(loggedUser))
             {
-                case 1:
-                    login();
-                    break;
-                case 2:
-                    /*Register register = new Register();
-                    messages = new Messages(Actions.REGISTER, register.getUser());
-                    client.connect(messages);*/
-                    register();
-                    break;
-                default:
-                    return;
+                Console.WriteLine("Logout");
+                return true;
             }
 
-            client.Close();
+            Console.WriteLine("Logout failed");
+
+            return false;
+        }
+
+        public static void visualInterface(Users controller)
+        {
+            bool live = true;
+
+            while(live)
+            {
+                Console.WriteLine("--------------------------------------");
+                Console.WriteLine("--------------------------------------");
+                Console.WriteLine("--------------------------------------");
+                Console.WriteLine("-------------Welcome------------------");
+                Console.WriteLine("--------------------------------------");
+                Console.WriteLine("-------------1-Login------------------");
+                Console.WriteLine("-------------2-Register---------------");
+                Console.WriteLine("--------------------------------------");
+                Console.WriteLine("--------------------------------------");
+                Console.WriteLine("--------------------------------------");
+                string action = Console.ReadLine();
+                switch (Int32.Parse(action))
+                {
+                    case 1:
+                        login(controller);
+                        break;
+                    case 2:
+                        register(controller);
+                        break;
+                    case 3:
+                        live = !logout(controller);
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }
