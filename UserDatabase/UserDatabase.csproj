@@ -44,7 +44,6 @@
     <Compile Include="Client.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="Interactions.cs" />
-    <Compile Include="Server.cs" />
     <Compile Include="Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

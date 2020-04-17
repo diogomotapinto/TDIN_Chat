@@ -26,7 +26,7 @@ namespace WPFUI
     {
         public Users userController;
 
-        Dictionary<Conversation, SimpleMessage> chat;
+        Dictionary<Conversation, List<string>> chat;
         User user;
         App app;
         public Chat(User user, Users userController)
@@ -36,19 +36,18 @@ namespace WPFUI
             this.app = app;
             this.userController = userController;
             this.user = user;
+            this.app.setTextBlock(textBlock);
         }
 
-        public void startReceiver()
-        {
-
-        }
 
         private void send_button_Click(object sender, RoutedEventArgs e)
         {
+            string message = textBox.Text;
             Console.WriteLine("My port {0}", app.getUser());
             Console.WriteLine("Other guy port {0}", user.Port);
             Client client = new Client("127.0.0.1", user.Port);
-            client.connect(new Messages("200", "ola"));
+            textBlock.Inlines.Add("" + app.getUser().ToString() + " - " + message);
+            client.connect(new Messages("DIRECT_MESSAGE", message));
             client.Close();
         }
     }

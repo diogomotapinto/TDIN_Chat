@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-
+using System.Windows.Controls;
 using System.Threading;
 using Shared;
 namespace WPFUI
@@ -26,6 +26,19 @@ namespace WPFUI
         {
             return user;
         }
+
+        public void setTextBlock(TextBlock textBlock)
+        {
+
+            if (server != null)
+            {
+                server.setTextBlock(textBlock);
+            }
+        }
+
+     
+
+
         public void createUser(User user)
         {
             this.user = user;
