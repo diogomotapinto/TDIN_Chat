@@ -13,14 +13,13 @@ namespace UserDatabase
         TcpListener server = null;
         Actions actions;
         List<User> onlineUsers;
-        public Server(string ip, int port)
+        public Server(int port)
         {
-            IPAddress localAddr = IPAddress.Parse(ip);
-            server = new TcpListener(localAddr, port);
+            server = new TcpListener(IPAddress.Any, port);
             actions = new Actions();
             onlineUsers = new List<User>();
             server.Start();
-            StartListener();
+
         }
         public void StartListener()
 

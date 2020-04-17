@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Shared;
+using System.Net.Sockets;
 using System.Threading;
 using UserDatabase;
 
@@ -24,21 +25,31 @@ namespace WPFUI
     public partial class Chat : Page
     {
         public Users userController;
+
         Dictionary<Conversation, SimpleMessage> chat;
+        User user;
+        App app;
         public Chat(User user, Users userController)
         {
             InitializeComponent();
+            App app = (App)App.Current;
+            this.app = app;
             this.userController = userController;
-            Thread t = new Thread(messageReceiver);
+            this.user = user;
         }
 
-        public void messageReceiver()
+        public void startReceiver()
         {
-            Console.WriteLine("Select Client Port:  ");
-            string clientPort = Console.ReadLine();
-            Console.WriteLine("Starting Message Receiver...");
-            // ClientServer server = new ClientServer("127.0.0.1", userController.getMe().Port);
+
         }
 
+        private void send_button_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("My port {0}", app.getUser());
+            Console.WriteLine("Other guy port {0}", user.Port);
+            Client client = new Client("127.0.0.1", user.Port);
+            client.connect(new Messages("200", "ola"));
+            client.Close();
+        }
     }
 }

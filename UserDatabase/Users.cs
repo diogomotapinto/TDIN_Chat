@@ -8,18 +8,20 @@ namespace UserDatabase
     {
         List<User> onlineUsers;
         public event AuthenticationEventHandler NewAuthEvent;
-
         public Users()
         {
             onlineUsers = new List<User>();
             Console.WriteLine("New Users object created");
+
         }
 
-        public User findUser(String name, List<User> list)
+
+
+        public User findUser(string name)
         {
-            foreach (var elem in list)
+            foreach (var elem in onlineUsers)
             {
-                if (name == elem.ToString())
+                if (name == elem.Name)
                 {
                     return elem;
                 }
@@ -36,12 +38,11 @@ namespace UserDatabase
 
             foreach (var elem in registeredUsers)
             {
-                if ((elem.ToString() == user.ToString() && user.Password == elem.Password) && findUser(user.ToString(), onlineUsers) == null)
+                //if ((elem.ToString() == user.ToString() && user.Password == elem.Password) && findUser(user.ToString()) == null)
                 {
                     Console.WriteLine("Logged  in {0}", user.ToString());
                     //this will return a list of all users with an account
                     onlineUsers.Add(user);
-
                     /* EVENT STUFF */
                     AuthenticationEventArgs newAuth = new AuthenticationEventArgs(user, true);
                     if (NewAuthEvent != null)

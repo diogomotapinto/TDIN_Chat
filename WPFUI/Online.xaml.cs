@@ -26,18 +26,16 @@ namespace WPFUI
     {
         Users userController;
         Frame frame;
-        public Online(Users userContoller, Frame frame)
+        App app;
+        public Online(Users userController, Frame frame)
         {
             InitializeComponent();
             this.frame = frame;
             this.userController = userController;
-
-
-            //userContoller.Logged += loggedIn.OnLogged;
-
-
-            List<User> onlineUsers = userContoller.getOnline();
-
+            List<User> onlineUsers = userController.getOnline();
+            //Application.Current.createServer(new ClientServer(userController.getMe().Port));
+            App app = (App)App.Current;
+            app.createServer(new ClientServer(app.getUser().Port));
             foreach (var elem in onlineUsers)
             {
                 Console.WriteLine(elem.ToString());
@@ -48,15 +46,29 @@ namespace WPFUI
             }
         }
 
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-
-            Chat chatPage = new Chat(new User("ola", "ola"), userController);
+            Button btn = sender as Button;
+            string s = (string)btn.Content;
+            Console.WriteLine(s);
+            Chat chatPage = new Chat(userController.findUser(s), userController);
             frame.Navigate(chatPage);
-
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            stack.Children.Clear();
+            List<User> onlineUsers = userController.getOnline();
 
+            foreach (var elem in onlineUsers)
+            {
+                Console.WriteLine(elem.ToString());
+                Button button = new Button();
+                button.Content = elem.ToString();
+                button.Click += Button_Click;
+                stack.Children.Add(button);
+            }
+        }
     }
 }

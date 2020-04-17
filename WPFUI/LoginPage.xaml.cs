@@ -26,9 +26,13 @@ namespace WPFUI
 
         Users userController;
         Frame frame;
+        App app;
         public LoginPage(Users userController, Frame frame)
         {
             InitializeComponent();
+            App app = (App)App.Current;
+            this.app = app;
+
             this.userController = userController;
             this.frame = frame;
         }
@@ -39,11 +43,9 @@ namespace WPFUI
             string clientUsername = username.Text;
             string clientPassword = password.Text;
             User user = new User(clientUsername, clientPassword);
-
-            // userController.EventHandler += onlinePage.Logged;
-
             if (userController.login(user))
             {
+                app.createUser(user);
                 Online onlinePage = new Online(userController, frame);
                 frame.Navigate(onlinePage);
             }

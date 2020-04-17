@@ -17,12 +17,15 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20">
             </RowDefinition>
+            <RowDefinition Height="40">
+            </RowDefinition>
             <RowDefinition Height="*">
             </RowDefinition>
             <RowDefinition Height="20">
             </RowDefinition>
         </Grid.RowDefinitions>
-        <ScrollViewer  Grid.Column="1" Grid.Row="1">
+        <Button  Grid.Column="1" Grid.Row="1" Content="Refresh" Click="Button_Click_1"></Button>
+        <ScrollViewer  Grid.Column="1" Grid.Row="2">
             <StackPanel x:Name="stack">
 
             </StackPanel>
