@@ -21,6 +21,12 @@ namespace WPFUI
         public string TextMessage { get; set; }
     }
 
+
+    public class RequestEventArgs : EventArgs
+    {
+        public User user { get; set; }
+    }
+
     public partial class App : Application
     {
 
@@ -29,6 +35,10 @@ namespace WPFUI
         public delegate void MessageReceivedEventHandler(object source, MessageEventArgs args);
 
         public event MessageReceivedEventHandler MessageReceived;
+
+        public delegate void RequestEventHandler(object source, RequestEventArgs args);
+
+        public event RequestEventHandler RequestReceived;
 
         public App(int port)
         {
@@ -122,13 +132,23 @@ namespace WPFUI
             }
         }
 
+        protected virtual void OnRequestReceived(User user)
+        {
+            if (RequestReceived != null)
+            {
+                RequestReceived(this, new RequestEventArgs() { user = user });
+            }
+        }
+
 
 
         public virtual void Reducer(string type, object payload)
         {
             switch (type)
             {
-                case "ok":
+                case Actions.START_CHAT:
+                    Console.WriteLine(payload);
+                    OnRequestReceived((User)payload);
                     break;
                 default:
                     Console.WriteLine(payload);

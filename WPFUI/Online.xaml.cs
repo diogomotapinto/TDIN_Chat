@@ -53,6 +53,7 @@ namespace WPFUI
         Users userController;
         Frame frame;
         App app;
+        User userMe;
         public Online(Users userController, Frame frame)
         {
             InitializeComponent();
@@ -61,8 +62,10 @@ namespace WPFUI
             List<User> onlineUsers = userController.getOnline();
             App app = (App)App.Current;
             app.initialize(app.getUser().Port);
+            userMe = app.getUser();
             OnlineUsers onlineUsersList = new OnlineUsers(this, userController);
             userController.NewAuthEvent += onlineUsersList.newAuthEventHandler;
+            app.RequestReceived += this.OnRequestReceived;
             foreach (var elem in onlineUsers)
             {
                 if (!elem.Equals(app.getUser()))
@@ -73,6 +76,27 @@ namespace WPFUI
                     button.Click += Button_Click;
                     stack.Children.Add(button);
                 }
+            }
+        }
+
+        public void OnRequestReceived(object source, RequestEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Would you like to talk with " + e.user.ToString() + "?", "Request", MessageBoxButton.YesNoCancel);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    this.Dispatcher.Invoke(() =>
+                    {
+                        Chat chatPage = new Chat(e.user, userController);
+                        frame.Navigate(chatPage);
+                    });
+                    break;
+                case MessageBoxResult.No:
+                    MessageBox.Show("Oh well, too bad!", "Request");
+                    break;
+                case MessageBoxResult.Cancel:
+                    MessageBox.Show("Nevermind then...", "Request");
+                    break;
             }
         }
 
@@ -94,9 +118,11 @@ namespace WPFUI
         {
             Button btn = sender as Button;
             string s = (string)btn.Content;
-            Console.WriteLine(s);
-            Chat chatPage = new Chat(userController.findUser(s), userController);
-            frame.Navigate(chatPage);
+            User to = userController.findUser(s);
+            Client client = new Client("127.0.0.1", to.Port);
+            client.connect(new Messages(Actions.START_CHAT, userMe));
+            client.Close();
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
