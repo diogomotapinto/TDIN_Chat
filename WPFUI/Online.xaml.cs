@@ -35,7 +35,7 @@ namespace WPFUI
             List<User> onlineUsers = userController.getOnline();
             //Application.Current.createServer(new ClientServer(userController.getMe().Port));
             App app = (App)App.Current;
-            app.createServer(new ClientServer(app.getUser().Port));
+            app.initialize(app.getUser().Port);
             foreach (var elem in onlineUsers)
             {
                 Console.WriteLine(elem.ToString());

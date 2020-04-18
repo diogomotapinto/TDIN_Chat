@@ -36,7 +36,16 @@ namespace WPFUI
             this.app = app;
             this.userController = userController;
             this.user = user;
-            this.app.setTextBlock(textBlock);
+            app.MessageReceived += this.OnMessageReceived;
+        }
+
+        public void OnMessageReceived(object source, MessageEventArgs e)
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                Console.WriteLine("Message Received: " + e.TextMessage);
+                textBlock.Inlines.Add(e.TextMessage);
+            });
         }
 
 
