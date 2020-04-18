@@ -52,7 +52,7 @@ namespace WPFUI
 
         public App()
         {
-           
+
         }
 
         public User getUser()
@@ -136,7 +136,6 @@ namespace WPFUI
                     break;
             }
         }
-
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {

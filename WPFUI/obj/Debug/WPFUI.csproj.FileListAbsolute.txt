@@ -28,12 +28,6 @@ C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\bin\Debug\WPFUI.exe
 C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\bin\Debug\WPFUI.pdb
 C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\bin\Debug\Shared.dll
 C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\bin\Debug\UserDatabase.dll
-C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\bin\Debug\ClientFRam.exe
-C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\bin\Debug\ServerFram.exe
-C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\bin\Debug\ClientFRam.pdb
-C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\bin\Debug\ClientFRam.exe.config
-C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\bin\Debug\ServerFram.pdb
-C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\bin\Debug\ServerFram.exe.config
 C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\bin\Debug\Shared.pdb
 C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\bin\Debug\UserDatabase.pdb
 C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\obj\Debug\WPFUI.csprojAssemblyReference.cache

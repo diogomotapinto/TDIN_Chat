@@ -132,14 +132,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClientFRam\ClientFram.csproj">
-      <Project>{7761e11e-afaa-4d69-be1d-978b09d2880a}</Project>
-      <Name>ClientFram</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ServerFram\ServerFram.csproj">
-      <Project>{cce6de94-2ed7-41a9-a988-1d6e0ff3073d}</Project>
-      <Name>ServerFram</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Shared\Shared.csproj">
       <Project>{4270ddff-77e5-4ac1-a79a-60399061eeed}</Project>
       <Name>Shared</Name>

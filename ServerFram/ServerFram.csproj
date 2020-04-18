@@ -62,6 +62,10 @@
       <Project>{ad4751bc-414a-44c4-a2f7-6bb4500022ab}</Project>
       <Name>UserDatabase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WPFUI\WPFUI.csproj">
+      <Project>{1e3b1e2e-bdbb-45f4-9c98-04928fc9778d}</Project>
+      <Name>WPFUI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -44,7 +44,7 @@ namespace WPFUI
             this.Dispatcher.Invoke(() =>
             {
                 Console.WriteLine("Message Received: " + e.TextMessage);
-                textBlock.Inlines.Add(e.TextMessage);
+                textBlock.Inlines.Add(Environment.NewLine + "[" + user.Name + "]" + " - " + e.TextMessage);
             });
         }
 
@@ -52,10 +52,9 @@ namespace WPFUI
         private void send_button_Click(object sender, RoutedEventArgs e)
         {
             string message = textBox.Text;
-            Console.WriteLine("My port {0}", app.getUser());
-            Console.WriteLine("Other guy port {0}", user.Port);
+            textBox.Text = "";
             Client client = new Client("127.0.0.1", user.Port);
-            textBlock.Inlines.Add("" + app.getUser().ToString() + " - " + message);
+            textBlock.Inlines.Add(Environment.NewLine + "[" + app.getUser().ToString() + "]" + " - " + message);
             client.connect(new Messages("DIRECT_MESSAGE", message));
             client.Close();
         }

@@ -34,9 +34,4 @@ namespace Shared
         }
 
     }
-
-    /* public static bool checkList<T>(User user, List<T> list)
-    {
-        return true;
-    }*/
 }
