@@ -37,7 +37,7 @@ namespace WPFUI
             this.userController = userController;
             this.user = user;
             app.MessageReceived += this.OnMessageReceived;
-
+            userController.setState(app.getUser().Name, false);
 
         }
 

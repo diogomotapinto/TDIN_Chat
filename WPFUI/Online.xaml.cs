@@ -67,6 +67,7 @@ namespace WPFUI
             userController.NewAuthEvent += onlineUsersList.newAuthEventHandler;
             app.RequestReceived += this.OnRequestReceived;
             app.AcceptedReceived += this.OnAcceptedReceived;
+            userController.setState(app.getUser().Name, true);
             foreach (var elem in onlineUsers)
             {
                 if (!elem.Equals(app.getUser()))
@@ -74,7 +75,15 @@ namespace WPFUI
                     Console.WriteLine(elem.ToString());
                     Button button = new Button();
                     button.Content = elem.ToString();
-                    button.Click += Button_Click;
+                    if (elem.Available == true)
+                    {
+                        button.Click += Button_Click;
+                        button.Background = Brushes.Green;
+                    }
+                    else
+                    {
+                        button.Background = Brushes.Red;
+                    }
                     stack.Children.Add(button);
                 }
             }
@@ -89,7 +98,6 @@ namespace WPFUI
                     this.Dispatcher.Invoke(() =>
                     {
                         Chat chatPage = new Chat(e.user, userController);
-
                         frame.Navigate(chatPage);
                     });
                     break;
@@ -121,7 +129,15 @@ namespace WPFUI
                 Console.WriteLine("{0} has logged in.", user.Name);
                 Button button = new Button();
                 button.Content = user.ToString();
-                button.Click += Button_Click;
+                if (user.Available == true)
+                {
+                    button.Click += Button_Click;
+                    button.Background = Brushes.Green;
+                }
+                else
+                {
+                    button.Background = Brushes.Red;
+                }
                 stack.Children.Add(button);
             }
             );

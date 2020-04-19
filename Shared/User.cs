@@ -12,12 +12,26 @@ namespace Shared
         private string name;
         private string password;
         private int port;
+        private bool available;
         public User(string name, string password)
         {
             this.name = name;
             this.password = password;
             Random rnd = new Random();
             this.port = rnd.Next(100, 200);
+            this.available = true;
+        }
+
+        public bool Available
+        {
+            get
+            {
+                return available;
+            }
+            set
+            {
+                available = value;
+            }
         }
 
         public int Port

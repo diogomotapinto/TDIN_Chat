@@ -16,6 +16,18 @@ namespace UserDatabase
         }
 
 
+        public void setState(string name, bool state)
+        {
+            foreach (var elem in onlineUsers)
+            {
+                if (name == elem.Name)
+                {
+                    elem.Available = state;
+                }
+            }
+        }
+
+
 
         public User findUser(string name)
         {
