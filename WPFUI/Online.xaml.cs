@@ -162,11 +162,22 @@ namespace WPFUI
 
             foreach (var elem in onlineUsers)
             {
-                Console.WriteLine(elem.ToString());
-                Button button = new Button();
-                button.Content = elem.ToString();
-                button.Click += Button_Click;
-                stack.Children.Add(button);
+                if (!elem.Equals(app.getUser()))
+                {
+                    Console.WriteLine(elem.ToString());
+                    Button button = new Button();
+                    button.Content = elem.ToString();
+                    if (elem.Available == true)
+                    {
+                        button.Click += Button_Click;
+                        button.Background = Brushes.Green;
+                    }
+                    else
+                    {
+                        button.Background = Brushes.Red;
+                    }
+                    stack.Children.Add(button);
+                }
             }
         }
     }
