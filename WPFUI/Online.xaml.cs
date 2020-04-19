@@ -66,6 +66,7 @@ namespace WPFUI
             OnlineUsers onlineUsersList = new OnlineUsers(this, userController);
             userController.NewAuthEvent += onlineUsersList.newAuthEventHandler;
             app.RequestReceived += this.OnRequestReceived;
+            app.AcceptedReceived += this.OnAcceptedReceived;
             foreach (var elem in onlineUsers)
             {
                 if (!elem.Equals(app.getUser()))
@@ -88,6 +89,7 @@ namespace WPFUI
                     this.Dispatcher.Invoke(() =>
                     {
                         Chat chatPage = new Chat(e.user, userController);
+
                         frame.Navigate(chatPage);
                     });
                     break;
@@ -98,6 +100,17 @@ namespace WPFUI
                     MessageBox.Show("Nevermind then...", "Request");
                     break;
             }
+        }
+
+
+        public void OnAcceptedReceived(object source, RequestEventArgs e)
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                Console.WriteLine(e.user.ToString());
+                Chat chatPage = new Chat(e.user, userController);
+                frame.Navigate(chatPage);
+            });
         }
 
 
@@ -122,7 +135,8 @@ namespace WPFUI
             Client client = new Client("127.0.0.1", to.Port);
             client.connect(new Messages(Actions.START_CHAT, userMe));
             client.Close();
-
+            Chat chatPage = new Chat(to, userController);
+            frame.Navigate(chatPage);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

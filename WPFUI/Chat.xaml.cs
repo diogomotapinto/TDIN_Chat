@@ -37,6 +37,8 @@ namespace WPFUI
             this.userController = userController;
             this.user = user;
             app.MessageReceived += this.OnMessageReceived;
+
+
         }
 
         public void OnMessageReceived(object source, MessageEventArgs e)
@@ -47,7 +49,6 @@ namespace WPFUI
                 textBlock.Inlines.Add(Environment.NewLine + "[" + user.Name + "]" + " - " + e.TextMessage);
             });
         }
-
 
         private void send_button_Click(object sender, RoutedEventArgs e)
         {

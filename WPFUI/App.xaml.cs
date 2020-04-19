@@ -40,6 +40,10 @@ namespace WPFUI
 
         public event RequestEventHandler RequestReceived;
 
+        public delegate void AcceptEventHandler(object source, RequestEventArgs args);
+
+        public event AcceptEventHandler AcceptedReceived;
+
         public App(int port)
         {
             server = new TcpListener(IPAddress.Any, port);
@@ -140,6 +144,14 @@ namespace WPFUI
             }
         }
 
+        protected virtual void OnAcceptedReceived(User user)
+        {
+            if (AcceptedReceived != null)
+            {
+                AcceptedReceived(this, new RequestEventArgs() { user = user });
+            }
+        }
+
 
 
         public virtual void Reducer(string type, object payload)
@@ -149,6 +161,10 @@ namespace WPFUI
                 case Actions.START_CHAT:
                     Console.WriteLine(payload);
                     OnRequestReceived((User)payload);
+                    break;
+                case Actions.ACCEPTED:
+                    Console.WriteLine(payload);
+                    OnAcceptedReceived((User)payload);
                     break;
                 default:
                     Console.WriteLine(payload);

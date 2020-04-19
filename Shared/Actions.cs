@@ -15,6 +15,7 @@ namespace Shared
         public const string DIRECT_MESSAGE = "DIRECT_MESSAGE";
         public const string ALL_GOOD = "200";
         public const string START_CHAT = "START_CHAT";
+        public const string ACCEPTED = "ACCEPTED";
         public Actions()
         {
 
