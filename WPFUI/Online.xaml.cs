@@ -95,8 +95,9 @@ namespace WPFUI
 
         public void refreshList(User myUser, bool state)
         {
+            stack.Children.Clear();
             userController.setState(myUser.Name, state);
-            foreach (var elem in onlineUsers)
+            foreach (var elem in userController.getOnline())
             {
                 if (!elem.Equals(myUser))
                 {
@@ -164,9 +165,7 @@ namespace WPFUI
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             stack.Children.Clear();
-            List<User> onlineUsers = userController.getOnline();
-
-            foreach (var elem in onlineUsers)
+            foreach (var elem in userController.getOnline())
             {
                 if (!elem.Equals(app.getUser()))
                 {
