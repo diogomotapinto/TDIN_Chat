@@ -24,7 +24,7 @@ namespace WPFUI
     public partial class Page2 : Page
     {
         Frame frame;
-        private const string clientConfigFile = @"C:\Users\Diogo\source\repos\TDIN_Chat\ClientFram\App.config";
+        private const string clientConfigFile = @"..\WPFUI\App.config";
         Users userController;
         public Page2(Frame obj)
         {
