@@ -43,12 +43,12 @@ namespace WPFUI
         public delegate void AcceptEventHandler(object source, RequestEventArgs args);
 
         public event AcceptEventHandler AcceptedReceived;
-
+        public bool serverRunning;
         public App(int port)
         {
             server = new TcpListener(IPAddress.Any, port);
             server.Start();
-
+            serverRunning = false;
         }
 
         public void initialize(int port)
@@ -60,8 +60,16 @@ namespace WPFUI
 
         public void runServer()
         {
-            server.Start();
-            StartListener();
+            if (serverRunning == true)
+            {
+                return;
+            }
+            else
+            {
+                server.Start();
+                StartListener();
+                serverRunning = true;
+            }
         }
 
         public App()

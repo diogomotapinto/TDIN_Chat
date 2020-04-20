@@ -54,12 +54,13 @@ namespace WPFUI
         Frame frame;
         App app;
         User userMe;
+        List<User> onlineUsers;
         public Online(Users userController, Frame frame)
         {
             InitializeComponent();
             this.frame = frame;
             this.userController = userController;
-            List<User> onlineUsers = userController.getOnline();
+            onlineUsers = userController.getOnline();
             App app = (App)App.Current;
             app.initialize(app.getUser().Port);
             userMe = app.getUser();
@@ -67,10 +68,37 @@ namespace WPFUI
             userController.NewAuthEvent += onlineUsersList.newAuthEventHandler;
             app.RequestReceived += this.OnRequestReceived;
             app.AcceptedReceived += this.OnAcceptedReceived;
-            userController.setState(app.getUser().Name, true);
+            refreshList(app.getUser(), true);
+        }
+
+        public void OnRequestReceived(object source, RequestEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Would you like to talk with " + e.user.ToString() + "?", "Request", MessageBoxButton.YesNoCancel);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    this.Dispatcher.Invoke(() =>
+                    {
+                        Chat chatPage = new Chat(e.user, userController, frame, this);
+                        frame.Navigate(chatPage);
+                    });
+                    break;
+                case MessageBoxResult.No:
+                    MessageBox.Show("Oh well, too bad!", "Request");
+                    break;
+                case MessageBoxResult.Cancel:
+                    MessageBox.Show("Nevermind then...", "Request");
+                    break;
+            }
+        }
+
+
+        public void refreshList(User myUser, bool state)
+        {
+            userController.setState(myUser.Name, state);
             foreach (var elem in onlineUsers)
             {
-                if (!elem.Equals(app.getUser()))
+                if (!elem.Equals(myUser))
                 {
                     Console.WriteLine(elem.ToString());
                     Button button = new Button();
@@ -89,34 +117,12 @@ namespace WPFUI
             }
         }
 
-        public void OnRequestReceived(object source, RequestEventArgs e)
-        {
-            MessageBoxResult result = MessageBox.Show("Would you like to talk with " + e.user.ToString() + "?", "Request", MessageBoxButton.YesNoCancel);
-            switch (result)
-            {
-                case MessageBoxResult.Yes:
-                    this.Dispatcher.Invoke(() =>
-                    {
-                        Chat chatPage = new Chat(e.user, userController);
-                        frame.Navigate(chatPage);
-                    });
-                    break;
-                case MessageBoxResult.No:
-                    MessageBox.Show("Oh well, too bad!", "Request");
-                    break;
-                case MessageBoxResult.Cancel:
-                    MessageBox.Show("Nevermind then...", "Request");
-                    break;
-            }
-        }
-
-
         public void OnAcceptedReceived(object source, RequestEventArgs e)
         {
             this.Dispatcher.Invoke(() =>
             {
                 Console.WriteLine(e.user.ToString());
-                Chat chatPage = new Chat(e.user, userController);
+                Chat chatPage = new Chat(e.user, userController, frame, this);
                 frame.Navigate(chatPage);
             });
         }
@@ -151,7 +157,7 @@ namespace WPFUI
             Client client = new Client("127.0.0.1", to.Port);
             client.connect(new Messages(Actions.START_CHAT, userMe));
             client.Close();
-            Chat chatPage = new Chat(to, userController);
+            Chat chatPage = new Chat(to, userController, frame, this);
             frame.Navigate(chatPage);
         }
 

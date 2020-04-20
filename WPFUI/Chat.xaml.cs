@@ -29,16 +29,19 @@ namespace WPFUI
         Dictionary<Conversation, List<string>> chat;
         User user;
         App app;
-        public Chat(User user, Users userController)
+        Frame frame;
+        Online onlinePage;
+        public Chat(User user, Users userController, Frame frame, Online onlinePage)
         {
             InitializeComponent();
+            this.frame = frame;
+            this.onlinePage = onlinePage;
             App app = (App)App.Current;
             this.app = app;
             this.userController = userController;
             this.user = user;
             app.MessageReceived += this.OnMessageReceived;
-            userController.setState(app.getUser().Name, false);
-
+            onlinePage.refreshList(app.getUser(), false);
         }
 
         public void OnMessageReceived(object source, MessageEventArgs e)
@@ -58,6 +61,12 @@ namespace WPFUI
             textBlock.Inlines.Add(Environment.NewLine + "[" + app.getUser().ToString() + "]" + " - " + message);
             client.connect(new Messages("DIRECT_MESSAGE", message));
             client.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            onlinePage.refreshList(app.getUser(), true);
+            frame.Navigate(onlinePage);
         }
     }
 }

@@ -22,7 +22,7 @@ namespace UserDatabase
             {
                 if (name == elem.Name)
                 {
-                    elem.Available = state;
+                    findUser(elem.Name).Available = state;
                 }
             }
         }
