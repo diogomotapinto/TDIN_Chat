@@ -54,3 +54,6 @@ C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\obj\Debug\WPFUI.exe
 C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\obj\Debug\WPFUI.pdb
 C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\bin\Debug\WPFUI.exe.config
 C:\Users\Diogo\source\repos\TDIN_Chat\WPFUI\obj\Debug\WPFUI.csproj.CopyComplete
+C:\Users\Diogo\source\repos\TDIN_Chat\build\WPFUI.exe.config
+C:\Users\Diogo\source\repos\TDIN_Chat\build\WPFUI.exe
+C:\Users\Diogo\source\repos\TDIN_Chat\build\WPFUI.pdb
