@@ -8,8 +8,8 @@ namespace UserDatabase
     class FileManager
     {
         private Stream stream;
-        private const string path = @"c:\temp\DB.bin";
-        private const string directPath = @"c:\temp";
+        private const string path = @"..\temp\DB.bin";
+        private const string directPath = @"..\temp";
         public FileManager()
         {
 

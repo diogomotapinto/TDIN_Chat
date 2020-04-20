@@ -5,8 +5,7 @@ namespace ServerFram
 {
     class Program
     {
-        //private const string configFilePath = @"C:\Users\dnc18\Prog\TDIN_Chat\ServerFram\App.config";
-        private const string configFilePath = @"C:\Users\Diogo\source\repos\TDIN_Chat\ServerFram\App.config";
+        private const string configFilePath = @"..\ServerFram\App.config";
         static void Main(string[] args)
         {
             RemotingConfiguration.Configure(configFilePath, false);
