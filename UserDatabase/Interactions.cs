@@ -11,6 +11,11 @@ namespace UserDatabase
 
         bool logout(User user);
 
+        void findUser(string name);
+
+        void setState(string name, bool state);
+
+
         List<User> getOnline();
     }
 }
