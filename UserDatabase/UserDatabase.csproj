@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="Interactions.cs" />
     <Compile Include="Users.cs" />

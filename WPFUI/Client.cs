@@ -2,9 +2,9 @@
 using System.Net;
 using System.Net.Sockets;
 using Shared;
-namespace UserDatabase
-{
 
+namespace WPFUI
+{
     public class Client
     {
         private IPAddress address;
@@ -43,9 +43,5 @@ namespace UserDatabase
             client.Close();
         }
     }
-
-
-
-
 
 }
