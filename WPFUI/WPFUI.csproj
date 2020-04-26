@@ -59,7 +59,6 @@
       <DependentUpon>Chat.xaml</DependentUpon>
     </Compile>
     <Compile Include="Client.cs" />
-    <Compile Include="ClientServer.cs" />
     <Compile Include="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -69,7 +68,6 @@
     <Compile Include="RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Server.cs" />
     <Compile Include="StartingPage.xaml.cs">
       <DependentUpon>StartingPage.xaml</DependentUpon>
     </Compile>
