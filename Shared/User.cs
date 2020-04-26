@@ -18,8 +18,14 @@ namespace Shared
             this.name = name;
             this.password = password;
             Random rnd = new Random();
-            this.port = rnd.Next(100, 200);
+            this.port = 9000 + rnd.Next(100, 900);
             this.available = true;
+        }
+
+        public void createNewPort()
+        {
+            Random rnd = new Random();
+            this.port = 9000 + rnd.Next(100, 900);
         }
 
         public bool Available

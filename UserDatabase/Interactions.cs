@@ -15,7 +15,6 @@ namespace UserDatabase
 
         void setState(string name, bool state);
 
-
         List<User> getOnline();
     }
 }
